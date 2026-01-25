@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Copy, CheckCircle, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 
@@ -438,6 +438,12 @@ const CARD_BG = '#f7f8fb';
 
 const AIMoneyMasterPromptsPage: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'AI & Money 수익화 프롬프트 모음 - AI 야학당';
+    window.scrollTo(0, 0);
+  }, []);
+
   const [activeSection, setActiveSection] = useState<string>('');
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
 
@@ -491,6 +497,22 @@ const AIMoneyMasterPromptsPage: React.FC = () => {
         }}
       >
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          {/* Cover Image */}
+          <div style={{
+            maxWidth: '280px',
+            margin: '0 auto 30px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            border: '2px solid rgba(250, 204, 21, 0.3)'
+          }}>
+            <img
+              src="/images/textbook_ai_money_vault.png"
+              alt="AI Money Prompt Vault"
+              style={{ width: '100%', display: 'block' }}
+            />
+          </div>
+
           <p style={{ letterSpacing: '0.3em', textTransform: 'uppercase', color: BRAND_GOLD, fontWeight: 600, marginBottom: '14px' }}>
             AI & Money Project Toolkit
           </p>

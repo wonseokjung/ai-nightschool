@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Youtube, MessageCircle } from 'lucide-react'
 
 const Footer = () => {
@@ -76,8 +77,22 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="footer-bottom" style={{ marginTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-                © 2026 AI 야학당. All rights reserved.
+            <div className="footer-bottom" style={{
+                marginTop: '30px',
+                borderTop: '1px solid rgba(255,255,255,0.05)',
+                paddingTop: '20px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px'
+            }}>
+                <div style={{ fontSize: '0.85rem' }}>
+                    <Link to="/privacy" style={{ color: '#94a3b8', marginRight: '20px', textDecoration: 'none' }}>개인정보처리방침</Link>
+                    <Link to="/terms" style={{ color: '#94a3b8', textDecoration: 'none' }}>이용약관</Link>
+                </div>
+                <div style={{ color: '#64748b', fontSize: '0.9rem' }}>
+                    © 2026 AI 야학당. All rights reserved.
+                </div>
             </div>
         </footer>
     )

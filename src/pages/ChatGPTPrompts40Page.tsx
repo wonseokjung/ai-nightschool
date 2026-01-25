@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Copy, CheckCircle, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 
@@ -6,6 +6,11 @@ const ChatGPTPrompts40Page: React.FC = () => {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [copiedPrompt, setCopiedPrompt] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.title = '직장인을 위한 ChatGPT 프롬프트 100선 - AI 야학당';
+    window.scrollTo(0, 0);
+  }, []);
 
 
   // 카테고리별 프롬프트 데이터
@@ -1124,6 +1129,22 @@ ESG 현황: [환경/사회/지배구조 수준]
         color: '#f8fafc'
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          {/* Cover Image */}
+          <div style={{
+            maxWidth: '300px',
+            margin: '0 auto 30px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            border: '4px solid rgba(255,255,255,0.1)'
+          }}>
+            <img
+              src="/images/textbook_40plus_prompt.png"
+              alt="40+ ChatGPT Prompts"
+              style={{ width: '100%', display: 'block' }}
+            />
+          </div>
+
           <h1 style={{
             fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: '700',

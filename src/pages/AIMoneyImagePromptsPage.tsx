@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Copy, CheckCircle, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 
@@ -134,6 +134,12 @@ const CARD_BG = '#f7f8fb';
 
 const AIMoneyImagePromptsPage: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'AI 수익화 이미지 생성 프롬프트 - AI 야학당';
+    window.scrollTo(0, 0);
+  }, []);
+
   const [activeSection, setActiveSection] = useState<string>('');
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
 
@@ -245,10 +251,10 @@ const AIMoneyImagePromptsPage: React.FC = () => {
             marginBottom: '20px'
           }}>
             {[
-              { src: '/images/Gemini_Generated_Image_5o0k4i5o0k4i5o0k.jpeg', alt: '카페 메뉴판 예제' },
-              { src: '/Gemini_Generated_Image_2jc1oe2jc1oe2jc1.jpeg', alt: '재테크 썸네일 예제' },
-              { src: '/Gemini_Generated_Image_6lumev6lumev6lum.jpeg', alt: '맛집 리뷰 예제' },
-              { src: '/Gemini_Generated_Image_ho64trho64trho64.jpeg', alt: 'AI 수익화 예제' }
+              { src: '/images/cafe_menu_board.png', alt: '카페 메뉴판 예제' },
+              { src: '/images/finance_thumbnail.png', alt: '재테크 썸네일 예제' },
+              { src: '/images/restaurant_food_review.png', alt: '맛집 리뷰 예제' },
+              { src: '/images/ai_ebook_cover.png', alt: 'AI 수익화 예제' }
             ].map((image, index) => (
               <div
                 key={index}

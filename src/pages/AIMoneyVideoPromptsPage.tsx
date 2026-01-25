@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Copy, CheckCircle, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -302,6 +302,12 @@ const CARD_BG = '#f7f8fb';
 
 const AIMoneyVideoPromptsPage: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'AI 수익화 비디오 생성 프롬프트 - AI 야학당';
+    window.scrollTo(0, 0);
+  }, []);
+
   const [activeSection, setActiveSection] = useState<string>('');
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
 
@@ -403,7 +409,7 @@ const AIMoneyVideoPromptsPage: React.FC = () => {
 
       <div
         style={{
-          background: `linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), url('/images/ai_video_money.jpg')`,
+          background: `linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), url('/images/textbook_ai_video_money.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#ffffff',

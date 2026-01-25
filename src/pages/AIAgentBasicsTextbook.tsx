@@ -7,16 +7,15 @@ const AIAgentBasicsTextbook: React.FC = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null); // null = 로딩중
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [userName, setUserName] = useState<string>(''); // 추후 사용 예정
+
 
     // 로그인 체크
     useEffect(() => {
         const userInfo = sessionStorage.getItem('aicitybuilders_user_session');
         if (userInfo) {
             try {
-                const parsed = JSON.parse(userInfo);
+                JSON.parse(userInfo); // 유효성 검사
                 setIsLoggedIn(true);
-                setUserName(parsed.name || parsed.email?.split('@')[0] || '');
             } catch {
                 setIsLoggedIn(false);
             }
@@ -285,6 +284,10 @@ Be pragmatic. Be reliable. Self-anneal.`;
                     <ArrowLeft size={16} />
                     돌아가기
                 </button>
+
+                <div style={{ marginBottom: '30px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}>
+                    <img src="/images/textbook_ai_agent_basics.png" alt="Automation Basics" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </div>
 
                 <p style={{ color: '#6b7280', fontSize: '0.95rem', marginBottom: '10px', fontWeight: '500' }}>
                     AI 수익화 야학당 교재

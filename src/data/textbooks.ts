@@ -37,7 +37,7 @@ export const textbooks: Textbook[] = [
         title: '40대+ 직장인을 위한 ChatGPT 프롬프트 100선',
         subtitle: '실전 업무 최적화 프롬프트 모음',
         description: '경험 많은 직장인을 위한 AI 활용 가이드북. 보고서, 이메일, 기획안 작성에 바로 쓸 수 있는 프롬프트!',
-        image: '/images/40+prompt.png',
+        image: '/images/textbook_40plus_prompt.png',
         tools: ['ChatGPT', 'Gemini'],
         tags: ['업무', '직장인', '이메일', '보고서'],
         isNew: true,
@@ -53,7 +53,7 @@ export const textbooks: Textbook[] = [
         title: 'AI & Money Prompt Vault',
         subtitle: '기획부터 세일즈까지 38개 프롬프트',
         description: '디지털 제품·콘텐츠 수익화를 위한 마스터 프롬프트 패키지',
-        image: '/images/promptpractice.jpeg',
+        image: '/images/textbook_ai_money_vault.png',
         tools: ['ChatGPT', 'Claude', 'Gemini'],
         tags: ['수익화', '세일즈', '마케팅'],
         isNew: false,
@@ -71,7 +71,7 @@ export const textbooks: Textbook[] = [
         title: 'AI 수익화 이미지 생성 프롬프트 10선',
         subtitle: '썸네일부터 제품 사진까지',
         description: 'Gemini, ChatGPT, Midjourney로 만드는 고퀄리티 수익화 이미지',
-        image: '/images/AIIMAGMONEY.jpeg',
+        image: '/images/textbook_ai_image_money.png',
         tools: ['Midjourney', 'ChatGPT', 'Gemini'],
         tags: ['이미지', '썸네일', '제품사진'],
         isNew: false,
@@ -89,7 +89,7 @@ export const textbooks: Textbook[] = [
         title: 'AI 수익화 비디오 생성 프롬프트 10선',
         subtitle: '숏폼부터 브랜드 광고까지',
         description: 'Google Veo, Runway, Pika로 만드는 프로급 수익화 영상',
-        image: '/images/ai_video_money.jpg',
+        image: '/images/textbook_ai_video_money.png',
         tools: ['Veo', 'Runway', 'Pika'],
         tags: ['영상', '숏폼', '광고'],
         isNew: false,
@@ -98,6 +98,7 @@ export const textbooks: Textbook[] = [
         createdAt: '2026-01-12',
         updatedAt: '2026-01-22'
     },
+    /*
     {
         id: 'ai-character-video-prompts',
         category: 'video',
@@ -148,6 +149,7 @@ export const textbooks: Textbook[] = [
         createdAt: '2026-01-22',
         updatedAt: '2026-01-25'
     }
+    */
 ]
 
 // 카테고리 정보

@@ -12,6 +12,8 @@ import AIMoneyImagePromptsPage from './pages/AIMoneyImagePromptsPage'
 import AIMoneyVideoPromptsPage from './pages/AIMoneyVideoPromptsPage'
 import AIRealisticCharacterVideoPage from './pages/AIRealisticCharacterVideoPage'
 import AIVideoGenerationPromptsPage from './pages/AIVideoGenerationPromptsPage'
+import PrivacyPage from './pages/PrivacyPage'
+import TermsPage from './pages/TermsPage'
 
 function App() {
     return (
@@ -39,6 +41,10 @@ function App() {
 
                     {/* 자동화 교재들 */}
                     <Route path="/textbook/ai-agent-basics" element={<AIAgentBasicsTextbook />} />
+
+                    {/* 법적 고지 */}
+                    <Route path="/privacy" element={<PrivacyPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
                 </Routes>
             </main>
             <Footer />

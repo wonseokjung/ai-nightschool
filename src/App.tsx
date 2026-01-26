@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 // 실제 교재 페이지들
 import ChatGPTPrompts40Page from './pages/ChatGPTPrompts40Page'
 import AIAgentBasicsTextbook from './pages/AIAgentBasicsTextbook'
+import AndrewNgAIVisionPage from './pages/AndrewNgAIVisionPage'
 import AIMoneyMasterPromptsPage from './pages/AIMoneyMasterPromptsPage'
 import AIMoneyImagePromptsPage from './pages/AIMoneyImagePromptsPage'
 import AIMoneyVideoPromptsPage from './pages/AIMoneyVideoPromptsPage'
@@ -41,6 +42,7 @@ function App() {
 
                     {/* 자동화 교재들 */}
                     <Route path="/textbook/ai-agent-basics" element={<AIAgentBasicsTextbook />} />
+                    <Route path="/textbook/andrew-ng-ai-vision" element={<AndrewNgAIVisionPage />} />
 
                     {/* 법적 고지 */}
                     <Route path="/privacy" element={<PrivacyPage />} />

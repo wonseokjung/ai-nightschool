@@ -98,6 +98,24 @@ export const textbooks: Textbook[] = [
         createdAt: '2026-01-12',
         updatedAt: '2026-01-22'
     },
+
+    // ===== 자동화/인사이트 카테고리 =====
+    {
+        id: 'andrew-ng-ai-vision',
+        category: 'automation',
+        level: 'beginner',
+        title: '앤드류 응의 AI 비전: 지금 바로 만들어라',
+        subtitle: '코딩보다 기획이 중요한 시대의 생존 전략',
+        description: 'AI 거장 앤드류 응이 말하는 "AI Agent 시대의 기회와 전략". 엔지니어와 PM의 경계가 무너지는 지금, 당신이 취해야 할 행동은?',
+        image: '/images/andrew_ng_vision_cover.png',
+        tools: ['AI Vision', 'Mindset', 'Agentic Workflow'],
+        tags: ['앤드류응', '전략', '인사이트', '동기부여'],
+        isNew: true,
+        isFeatured: true,
+        views: 120,
+        createdAt: '2026-01-26',
+        updatedAt: '2026-01-26'
+    },
     /*
     {
         id: 'ai-character-video-prompts',

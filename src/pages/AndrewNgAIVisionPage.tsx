@@ -287,146 +287,154 @@ const AndrewNgAIVisionPage: React.FC = () => {
                         >
                             💻 코드 복사하러 가기 (Google AI Studio)
                         </a>
-                        {/* 섹션 5 - 확장된 비즈니스 아이디어 (New) */}
-                        <div style={sectionStyle}>
-                            <span style={{
-                                background: '#8b5cf6',
-                                color: 'white',
-                                padding: '4px 12px',
-                                borderRadius: '20px',
-                                fontSize: '0.85rem',
-                                fontWeight: '700',
-                                marginBottom: '15px',
-                                display: 'inline-block'
-                            }}>
-                                비즈니스 인사이트
-                            </span>
-                            <h2 style={{ ...h2Style, marginTop: '0', borderBottom: 'none' }}>💡 손가락 하나로 세상이 바뀝니다</h2>
+                        <p style={{ textAlign: 'center', fontSize: '0.85rem', color: '#64748b', marginTop: '5px' }}>
+                            ※ 코드 링크에서 오른쪽 상단 <strong>[Copy App]</strong> 버튼을 누르면 바로 수정할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
 
-                            <p style={pStyle}>
-                                방금 본 풍선 게임은 시작일 뿐입니다. 이 기술(MediaPipe)을 교육, 헬스케어, 마케팅에 접목하면 어떤 일들이 가능할까요?<br />
-                                <strong>"화면을 터치하지 않고도 상호작용할 수 있다"</strong>는 점이 핵심입니다.
-                            </p>
+                {/* 섹션 5 - 확장된 비즈니스 아이디어 */}
+                <div style={sectionStyle}>
+                    <span style={{
+                        background: '#8b5cf6',
+                        color: 'white',
+                        padding: '4px 12px',
+                        borderRadius: '20px',
+                        fontSize: '0.85rem',
+                        fontWeight: '700',
+                        marginBottom: '15px',
+                        display: 'inline-block'
+                    }}>
+                        비즈니스 인사이트
+                    </span>
+                    <h2 style={{ ...h2Style, marginTop: '0', borderBottom: 'none' }}>💡 손가락 하나로 세상이 바뀝니다</h2>
 
-                            <h3 style={h3Style}>🎓 1. 교육: 만지면서 배우는 즐거움</h3>
-                            <p style={pStyle}>
-                                아이들은 가만히 앉아서 듣는 것보다, 직접 몸을 움직일 때 훨씬 잘 배웁니다.
-                            </p>
-                            <div style={{ marginBottom: '25px', borderRadius: '12px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
-                                <img
-                                    src="/images/mediapipe_examples.png"
-                                    alt="MediaPipe Education Examples"
-                                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                                />
-                            </div>
-                            <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
-                                <li style={{ marginBottom: '15px', background: '#f5f3ff', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>✍️ 허공에 쓰는 한글/영어 공부:</strong> 종이와 연필이 없어도 됩니다. 카메라 앞에서 손가락으로 허공에 'ㄱ'을 쓰면 화면에 글자가 나타납니다. "개(Dog)" 사진을 보여주고, 아이가 허공에 '개'라고 쓰면 정답! 이라고 외쳐주는 앱을 상상해 보세요.
-                                </li>
-                                <li style={{ marginBottom: '15px', background: '#f5f3ff', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>➕ 손가락 산수 (Finger Math):</strong> "1 더하기 2는?" 화면에 질문이 나오면, 아이가 손가락 3개를 폅니다. AI가 손가락 개수를 인식해서 채점해 줍니다. 직관적이고 재미있는 수학 공부가 가능해집니다.
-                                </li>
-                            </ul>
+                    <p style={pStyle}>
+                        방금 본 풍선 게임은 시작일 뿐입니다. 이 기술(MediaPipe)을 교육, 헬스케어, 마케팅에 접목하면 어떤 일들이 가능할까요?<br />
+                        <strong>"화면을 터치하지 않고도 상호작용할 수 있다"</strong>는 점이 핵심입니다.
+                    </p>
 
-                            <h3 style={h3Style}>💪 2. 헬스케어: 집에서 받는 PT</h3>
-                            <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
-                                <li style={{ marginBottom: '15px', background: '#ecfdf5', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>🏋️‍♀️ 스쿼트/자세 교정:</strong> "더 앉으세요!", "허리 펴세요!" 트레이너가 옆에 없어도 AI가 내 관절 위치를 보고 실시간으로 자세를 교정해 줍니다. 횟수 카운팅은 기본이죠.
-                                </li>
-                                <li style={{ marginBottom: '15px', background: '#ecfdf5', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>🧘 재활 치료 게임:</strong> 지루한 재활 운동을 게임처럼 만듭니다. 손을 뻗어 사과를 따거나, 장애물을 피하는 동작을 하면서 자연스럽게 운동 효과를 얻습니다.
-                                </li>
-                            </ul>
+                    <h3 style={h3Style}>🎓 1. 교육: 만지면서 배우는 즐거움</h3>
+                    <p style={pStyle}>
+                        아이들은 가만히 앉아서 듣는 것보다, 직접 몸을 움직일 때 훨씬 잘 배웁니다.
+                    </p>
+                    <div style={{ marginBottom: '25px', borderRadius: '12px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+                        <img
+                            src="/images/mediapipe_examples.png"
+                            alt="MediaPipe Education Examples"
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
+                    </div>
+                    <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '15px', background: '#f5f3ff', padding: '15px', borderRadius: '8px' }}>
+                            <strong>✍️ 허공에 쓰는 한글/영어 공부:</strong> 종이와 연필이 없어도 됩니다. 카메라 앞에서 손가락으로 허공에 'ㄱ'을 쓰면 화면에 글자가 나타납니다. "개(Dog)" 사진을 보여주고, 아이가 허공에 '개'라고 쓰면 정답! 이라고 외쳐주는 앱을 상상해 보세요.
+                        </li>
+                        <li style={{ marginBottom: '15px', background: '#f5f3ff', padding: '15px', borderRadius: '8px' }}>
+                            <strong>➕ 손가락 산수 (Finger Math):</strong> "1 더하기 2는?" 화면에 질문이 나오면, 아이가 손가락 3개를 폅니다. AI가 손가락 개수를 인식해서 채점해 줍니다. 직관적이고 재미있는 수학 공부가 가능해집니다.
+                        </li>
+                    </ul>
 
-                            <div style={{ background: '#fffbeb', padding: '20px', borderRadius: '10px', marginTop: '20px', borderLeft: '4px solid #f59e0b' }}>
-                                <strong style={{ display: 'block', marginBottom: '8px', color: '#92400e' }}>🚀 여러분의 아이디어는 무엇인가요?</strong>
-                                <p style={{ margin: 0, color: '#b45309', fontSize: '0.95rem' }}>
-                                    기술은 이미 준비되어 있습니다 (MediaPipe, Gemini).<br />
-                                    중요한 건 <strong>"이 기술로 누구의 불편함을 해결해 줄 것인가?"</strong> 하는 기획력입니다. 지금 바로 상상의 나래를 펼쳐보세요.
-                                </p>
-                            </div>
-                        </div>
+                    <h3 style={h3Style}>💪 2. 헬스케어: 집에서 받는 PT</h3>
+                    <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '15px', background: '#ecfdf5', padding: '15px', borderRadius: '8px' }}>
+                            <strong>🏋️‍♀️ 스쿼트/자세 교정:</strong> "더 앉으세요!", "허리 펴세요!" 트레이너가 옆에 없어도 AI가 내 관절 위치를 보고 실시간으로 자세를 교정해 줍니다. 횟수 카운팅은 기본이죠.
+                        </li>
+                        <li style={{ marginBottom: '15px', background: '#ecfdf5', padding: '15px', borderRadius: '8px' }}>
+                            <strong>🧘 재활 치료 게임:</strong> 지루한 재활 운동을 게임처럼 만듭니다. 손을 뻗어 사과를 따거나, 장애물을 피하는 동작을 하면서 자연스럽게 운동 효과를 얻습니다.
+                        </li>
+                    </ul>
 
-                        {/* 섹션 5 (원래 섹션 4) */}
-                        <div style={sectionStyle}>
-                            <h2 style={h2Style}>4. "Just Go and Build Stuff"</h2>
+                    <div style={{ background: '#fffbeb', padding: '20px', borderRadius: '10px', marginTop: '20px', borderLeft: '4px solid #f59e0b' }}>
+                        <strong style={{ display: 'block', marginBottom: '8px', color: '#92400e' }}>🚀 여러분의 아이디어는 무엇인가요?</strong>
+                        <p style={{ margin: 0, color: '#b45309', fontSize: '0.95rem' }}>
+                            기술은 이미 준비되어 있습니다 (MediaPipe, Gemini).<br />
+                            중요한 건 <strong>"이 기술로 누구의 불편함을 해결해 줄 것인가?"</strong> 하는 기획력입니다. 지금 바로 상상의 나래를 펼쳐보세요.
+                        </p>
+                    </div>
+                </div>
 
-                            <p style={pStyle}>
-                                그래서 결론은 무엇일까요? <strong>"그냥 가서 만들어라"</strong>입니다.
-                            </p>
+                {/* 섹션 6 */}
+                <div style={sectionStyle}>
+                    <h2 style={h2Style}>6. 실행이 전부입니다 (Just Build It)</h2>
 
-                            <h3 style={h3Style}>🛠 실패 비용은 '제로'에 가깝다</h3>
-                            <p style={pStyle}>
-                                "실패의 비용이 훨씬 낮아졌어요. 기껏해야 주말을 낭비하는 거지만, 그 과정에서 엄청나게 많은 것을 배우게 됩니다."
-                            </p>
-                            <p style={pStyle}>
-                                강의를 듣는 것도 좋지만, 직접 만들어서 세상에 내놓는 경험이 최고의 스승입니다. 아이디어는 넘쳐나지만, 그것을 <strong>실행할 수 있는 사람(Builder)</strong>은 여전히 부족합니다.
-                            </p>
+                    <p style={pStyle}>
+                        성공한 사람들의 공통점은 아이디어가 좋아서가 아니라, <strong>실행했기 때문</strong>입니다.
+                    </p>
 
-                            <h3 style={h3Style}>🔥 정치적으로 올바르지 않은 조언: "열심히 해라"</h3>
-                            <div style={quoteStyle}>
-                                "어떤 서클에서는 열심히 일하라고 하는 게 환영받지 못합니다. 하지만 저는 격려하겠습니다. 제 제자 중 성공한 사람들은 모두, 예외 없이, 엄청나게 열심히 일했습니다."
-                            </div>
-                            <p style={pStyle}>
-                            </p>
-                        </div>
+                    <h3 style={h3Style}>🛠 실패 비용은 '제로'에 가깝다</h3>
+                    <p style={pStyle}>
+                        "실패의 비용이 훨씬 낮아졌어요. 기껏해야 주말을 낭비하는 거지만, 그 과정에서 엄청나게 많은 것을 배우게 됩니다."
+                    </p>
+                    <p style={pStyle}>
+                        강의를 듣는 것도 좋지만, 직접 만들어서 세상에 내놓는 경험이 최고의 스승입니다. 아이디어는 넘쳐나지만, 그것을 <strong>실행할 수 있는 사람(Builder)</strong>은 여전히 부족합니다.
+                    </p>
 
-                        {/* 섹션 5 */}
-                        <div style={sectionStyle}>
-                            <h2 style={h2Style}>5. 당신의 성공을 결정하는 '사람들'</h2>
+                    <h3 style={h3Style}>🔥 정치적으로 올바르지 않은 조언: "열심히 해라"</h3>
+                    <div style={quoteStyle}>
+                        "어떤 서클에서는 열심히 일하라고 하는 게 환영받지 못합니다. 하지만 저는 격려하겠습니다. 제 제자 중 성공한 사람들은 모두, 예외 없이, 엄청나게 열심히 일했습니다."
+                    </div>
+                    <p style={pStyle}>
+                        만약 당신이 지금 열심히 일할 수 있는 환경에 있다면, 지금이 기회입니다.
+                        저녁과 주말에 코딩하고 만드는 것이 즐겁다면, 그렇게 하세요. 성공 확률이 비약적으로 올라갑니다.
+                    </p>
+                </div>
 
-                            <p style={pStyle}>
-                                AI 기술만큼이나 중요한 것이 바로 <strong>네트워크</strong>입니다.
-                            </p>
+                {/* 섹션 7 */}
+                <div style={sectionStyle}>
+                    <h2 style={h2Style}>7. 당신의 성공을 결정하는 '사람들'</h2>
 
-                            <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
-                                <li style={{ marginBottom: '15px', background: '#fffbeb', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>👯‍♂️ 5명의 법칙:</strong> 당신과 가장 친한 5명이 당신의 미래입니다. 그들이 열심히 일하고, 도전적이고, AI로 세상을 바꾸려 한다면, 당신도 그렇게 될 것입니다.
-                                </li>
-                                <li style={{ marginBottom: '15px', background: '#fffbeb', padding: '15px', borderRadius: '8px' }}>
-                                    <strong>🏢 회사 간판보다 '팀':</strong> 유명한 회사의 '이름 없는 부서'보다, 작더라도 '최고의 동료들이 있는 팀'을 선택하세요. 우리는 로고가 아니라 <strong>매일 만나는 사람들에게서 배웁니다.</strong>
-                                </li>
-                            </ul>
-                        </div>
+                    <p style={pStyle}>
+                        AI 기술만큼이나 중요한 것이 바로 <strong>네트워크</strong>입니다.
+                    </p>
 
-                        {/* 핵심 요약 카드 */}
-                        <div style={{
-                            background: 'linear-gradient(135deg, #1e293b, #0f172a)',
-                            borderRadius: '16px',
-                            padding: '40px',
-                            color: '#ffffff',
-                            textAlign: 'center',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
-                        }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#60a5fa' }}>✨ 오늘 당장 시작하세요</h3>
-                            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '30px', color: '#cbd5e1' }}>
-                                완벽한 아이디어를 기다리지 마세요.<br />
-                                AI는 당신에게 <strong>"슈퍼파워"</strong>를 주었습니다.<br />
-                                당신의 주말을 투자해 무언가를 만들고, 실패하고, 배우세요.<br />
-                                그것이 이 AI 혁명의 시기를 가장 잘 보내는 방법입니다.
-                            </p>
-                            <button
-                                onClick={() => window.open('https://www.aicitybuilders.com/chatgpt-agent-beginner', '_blank')}
-                                style={{
-                                    background: '#3b82f6',
-                                    color: 'white',
-                                    border: 'none',
-                                    padding: '16px 32px',
-                                    borderRadius: '50px',
-                                    fontSize: '1.1rem',
-                                    fontWeight: '700',
-                                    cursor: 'pointer',
-                                    transition: 'transform 0.2s',
-                                    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)'
-                                }}
-                            >
-                                시작하기: 나만의 에이전트 만들기 →
-                            </button>
-                        </div>
+                    <ul style={{ ...pStyle, listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '15px', background: '#fffbeb', padding: '15px', borderRadius: '8px' }}>
+                            <strong>👯‍♂️ 5명의 법칙:</strong> 당신과 가장 친한 5명이 당신의 미래입니다. 그들이 열심히 일하고, 도전적이고, AI로 세상을 바꾸려 한다면, 당신도 그렇게 될 것입니다.
+                        </li>
+                        <li style={{ marginBottom: '15px', background: '#fffbeb', padding: '15px', borderRadius: '8px' }}>
+                            <strong>🏢 회사 간판보다 '팀':</strong> 유명한 회사의 '이름 없는 부서'보다, 작더라도 '최고의 동료들이 있는 팀'을 선택하세요. 우리는 로고가 아니라 <strong>매일 만나는 사람들에게서 배웁니다.</strong>
+                        </li>
+                    </ul>
+                </div>
 
-                    </section >
-                </div >
-                );
+                {/* 핵심 요약 카드 */}
+                <div style={{
+                    background: 'linear-gradient(135deg, #1e293b, #0f172a)',
+                    borderRadius: '16px',
+                    padding: '40px',
+                    color: '#ffffff',
+                    textAlign: 'center',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                }}>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#60a5fa' }}>✨ 오늘 당장 시작하세요</h3>
+                    <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '30px', color: '#cbd5e1' }}>
+                        완벽한 아이디어를 기다리지 마세요.<br />
+                        AI는 당신에게 <strong>"슈퍼파워"</strong>를 주었습니다.<br />
+                        당신의 주말을 투자해 무언가를 만들고, 실패하고, 배우세요.<br />
+                        그것이 이 AI 혁명의 시기를 가장 잘 보내는 방법입니다.
+                    </p>
+                    <button
+                        onClick={() => window.open('https://www.aicitybuilders.com/', '_blank')}
+                        style={{
+                            background: '#3b82f6',
+                            color: 'white',
+                            border: 'none',
+                            padding: '16px 32px',
+                            borderRadius: '50px',
+                            fontSize: '1.1rem',
+                            fontWeight: '700',
+                            cursor: 'pointer',
+                            transition: 'transform 0.2s',
+                            boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)'
+                        }}
+                    >
+                        AI 수익화의 정석 강의 보러가기 →
+                    </button>
+                </div>
+
+            </section>
+        </div>
+    );
 };
 
-                export default AndrewNgAIVisionPage;
+export default AndrewNgAIVisionPage;

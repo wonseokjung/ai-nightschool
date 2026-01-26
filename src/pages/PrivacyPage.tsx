@@ -19,14 +19,23 @@ const PrivacyPage: React.FC = () => {
             <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>2. 개인정보의 수집 및 이용 목적</h2>
             <p>서비스 이용 통계 분석 및 서비스 품질 개선을 위한 목적으로만 사용됩니다.</p>
 
-            <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>3. 쿠키(Cookie)의 운용 및 거부</h2>
-            <p>회사는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트를 운영하는데 이용되는 서버가 이용자의 브라우저에게 보내는 소량의 정보이며 이용자 컴퓨터의 하드디스크에 저장되기도 합니다.</p>
+            <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>3. 쿠키(Cookie) 및 광고 아이디(Advertising ID)</h2>
+            <p>회사는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다.</p>
             <ul style={{ paddingLeft: '20px', margin: '10px 0' }}>
-                <li>쿠키의 사용 목적: 이용자의 접속 빈도나 방문 시간 등을 분석</li>
+                <li>쿠키의 사용 목적: 이용자의 접속 빈도나 방문 시간, 방문 회수 등을 분석하여 이용자 취향과 관심분야를 파악합니다.</li>
                 <li>쿠키 설정 거부 방법: 웹 브라우저 상단의 도구 &gt; 인터넷 옵션 &gt; 개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부할 수 있습니다.</li>
             </ul>
 
-            <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>4. 개인정보 보호책임자</h2>
+            <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>4. Google 애드센스 광고 (필수 고지사항)</h2>
+            <p>본 사이트는 Google의 광고 서비스인 <strong>Google AdSense</strong>를 사용하고 있습니다. Google과 타사 공급업체는 사용자의 귀하 사이트 또는 기타 웹사이트 방문 정보를 바탕으로 광고를 게재하기 위해 쿠키를 사용합니다.</p>
+            <ul style={{ paddingLeft: '20px', margin: '10px 0', listStyleType: 'disc' }}>
+                <li style={{ marginBottom: '8px' }}>Google은 광고 쿠키를 사용하여 사용자가 본 사이트나 다른 웹사이트를 방문한 기록을 바탕으로 적절한 광고를 제공합니다.</li>
+                <li style={{ marginBottom: '8px' }}>사용자는 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'underline' }}>광고 설정</a>에서 맞춤형 광고를 사용 중지할 수 있습니다.</li>
+                <li style={{ marginBottom: '8px' }}>Google의 데이터 사용에 대한 자세한 내용은 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'underline' }}>Google 파트너 사이트의 데이터 사용</a>을 참고하시기 바랍니다.</li>
+                <li style={{ marginBottom: '8px' }}>또한 <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'underline' }}>www.aboutads.info</a>에 접속하여 타사 공급업체의 맞춤형 광고 게재에 사용되는 쿠키를 사용 중지할 수 있습니다.</li>
+            </ul>
+
+            <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>5. 개인정보 보호책임자</h2>
             <p>이메일: wonseokjung1987@gmail.com</p>
 
             <div style={{ marginTop: '60px', borderTop: '1px solid #334155', paddingTop: '20px', fontSize: '0.9rem', color: '#94a3b8' }}>

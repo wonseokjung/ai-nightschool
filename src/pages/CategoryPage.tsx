@@ -31,25 +31,25 @@ const textbooks = [
     {
         id: 'ai-money-master-prompts',
         category: 'prompts',
-        title: 'AI & Money Prompt Vault',
-        subtitle: '기획부터 세일즈까지 38개 프롬프트',
-        description: '디지털 제품·콘텐츠 수익화를 위한 마스터 프롬프트 패키지',
+        title: 'AI Business Prompt Vault',
+        subtitle: '기획부터 마케팅까지 38개 실전 프롬프트',
+        description: '디지털 제품·콘텐츠 가치 창출을 위한 비즈니스 프롬프트 패키지',
         isNew: false
     },
     {
         id: 'ai-money-image-prompts',
         category: 'images',
-        title: 'AI 수익화 이미지 생성 프롬프트 10선',
+        title: 'AI 비즈니스 이미지 생성 프롬프트 10선',
         subtitle: '썸네일부터 제품 사진까지',
-        description: 'Gemini, ChatGPT, Midjourney로 만드는 고퀄리티 수익화 이미지',
+        description: 'Gemini, ChatGPT, Midjourney로 만드는 상업용 고퀄리티 이미지',
         isNew: false
     },
     {
         id: 'ai-money-video-prompts',
         category: 'video',
-        title: 'AI 수익화 비디오 생성 프롬프트 10선',
+        title: 'AI 커머셜 비디오 생성 프롬프트 10선',
         subtitle: '숏폼부터 브랜드 광고까지',
-        description: 'Google Veo, Runway, Pika로 만드는 프로급 수익화 영상',
+        description: 'Google Veo, Runway, Pika로 만드는 프로급 상업 영상 가이드',
         isNew: false
     },
     {

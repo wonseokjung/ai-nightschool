@@ -20,15 +20,15 @@ const imageSections: PromptSection[] = [
   {
     id: 'youtube-thumbnails',
     title: '📺 SECTION 1. 유튜브 & 영상 콘텐츠 (클릭을 부르는 썸네일)',
-    description: '조회수를 폭발시키는 강력한 썸네일 이미지를 생성하는 프롬프트입니다.',
+    description: '조회수를 높이는 강력한 썸네일 이미지를 생성하는 프롬프트입니다.',
     prompts: [
       {
-        title: '1. 금융/재테크/부업 분야 (신뢰 + 어그로)',
+        title: '1. 금융/재테크/부업 분야 (신뢰 + 주목도)',
         category: '유튜브 썸네일',
         usage: '금융/재테크 콘텐츠의 클릭률을 높이는 썸네일이 필요할 때 사용하세요.',
-        prompt: `A high-contrast YouTube thumbnail highlighting financial success. A trustworthy-looking person in a smart casual outfit is smiling confidently, holding a laptop displaying a rising graph. Big, bold, white text with a green outline across the top reads: "[월 300만원 버는 현실적인 방법]". Below it, smaller yellow text reads: "[초보자도 당장 시작 가능!]". The background is a blurred, luxurious home office.
+        prompt: `A high-contrast YouTube thumbnail highlighting financial growth. A trustworthy-looking person in a smart casual outfit is smiling confidently, holding a laptop displaying a rising graph. Big, bold, white text with a green outline across the top reads: "[월 300만원 가치 창출]". Below it, smaller yellow text reads: "[초보자도 당장 시작 가능!]". The background is a blurred, luxurious home office.
 
-(금융 성공을 강조하는 고대비 유튜브 썸네일. 스마트 캐주얼을 입은 신뢰감 있는 사람이 상승 그래프가 보이는 노트북을 들고 자신 있게 웃고 있음. 상단에 크고 두꺼운 흰색 글씨(초록색 테두리)로 "[월 300만원 버는 현실적인 방법]". 그 아래 작은 노란색 글씨로 "[초보자도 당장 시작 가능!]". 배경은 흐릿하고 고급스러운 홈 오피스.)`
+(금융 배움을 강조하는 고대비 유튜브 썸네일. 스마트 캐주얼을 입은 신뢰감 있는 사람이 상승 그래프가 보이는 노트북을 들고 자신 있게 웃고 있음. 상단에 크고 두꺼운 흰색 글씨(초록색 테두리)로 "[월 300만원 가치 창출]". 그 아래 작은 노란색 글씨로 "[초보자도 당장 시작 가능!]". 배경은 흐릿하고 고급스러운 홈 오피스.)`
       },
       {
         title: '2. 테크/제품 리뷰 분야 (강렬한 임팩트)',
@@ -42,8 +42,8 @@ const imageSections: PromptSection[] = [
   },
   {
     id: 'ecommerce',
-    title: '🛍️ SECTION 2. 제품 판매 & 커머스 (구매욕 자극)',
-    description: '방문자를 구매자로 전환시키는 고퀄리티 제품 이미지 프롬프트입니다.',
+    title: '🛍️ SECTION 2. 제품 소개 & 커머스 (구매욕 자극)',
+    description: '방문자를 고객으로 전환시키는 고퀄리티 제품 이미지 프롬프트입니다.',
     prompts: [
       {
         title: '3. 스마트스토어/쇼핑몰 대표 이미지 (감성 + 정보)',
@@ -73,16 +73,16 @@ const imageSections: PromptSection[] = [
   },
   {
     id: 'digital-products',
-    title: '📘 SECTION 3. 지식 창업 & 디지털 파일 판매 (전문성 강조)',
+    title: '📘 SECTION 3. 지식 콘텐츠 & 디지털 파일 (전문성 강조)',
     description: '전문성과 가치를 입증하는 디지털 제품 이미지 프롬프트입니다.',
     prompts: [
       {
         title: '6. 전자책(PDF) 표지 디자인 (권위 있는 느낌)',
         category: '전자책',
         usage: '판매용 전자책의 전문적인 표지가 필요할 때 사용하세요.',
-        prompt: `A professional e-book cover design mockup. The title in large, authoritative gold text reads: "[AI 수익화 마스터 클래스]". Subtitle below: "[프롬프트 하나로 월급 버는 실전 노하우]". The background is an abstract digital brain network connected to dollar signs. Author name at the bottom: "[김제미 지음]". Looks high-value and trustworthy.
+        prompt: `A professional e-book cover design mockup. The title in large, authoritative gold text reads: "[AI 비즈니스 마스터 클래스]". Subtitle below: "[프롬프트 하나로 성장하는 실전 노하우]". The background is an abstract digital brain network connected to dollar signs. Author name at the bottom: "[김제미 지음]". Looks high-value and trustworthy.
 
-(전문적인 전자책 표지 디자인 목업. 크고 권위 있는 금색 텍스트 타이틀: "[AI 수익화 마스터 클래스]". 아래 부제: "[프롬프트 하나로 월급 버는 실전 노하우]". 배경은 달러 기호와 연결된 추상적인 디지털 두뇌 네트워크. 하단에 저자 이름: "[김제미 지음]". 가치 높고 신뢰할 수 있어 보임.)`
+(전문적인 전자책 표지 디자인 목업. 크고 권위 있는 금색 텍스트 타이틀: "[AI 비즈니스 마스터 클래스]". 아래 부제: "[프롬프트 하나로 성장하는 실전 노하우]". 배경은 달러 기호와 연결된 추상적인 디지털 두뇌 네트워크. 하단에 저자 이름: "[김제미 지음]". 가치 높고 신뢰할 수 있어 보임.)`
       },
       {
         title: '7. 노션 템플릿/플래너 홍보 이미지 (감성 데스크테리어)',
@@ -119,7 +119,7 @@ const imageSections: PromptSection[] = [
         title: '10. 식당/카페 메뉴판 이미지 (먹음직스러운 연출)',
         category: '외식업',
         usage: '카페나 식당의 메뉴판 또는 SNS 홍보 이미지가 필요할 때 사용하세요.',
-        prompt: `A mouth-watering menu board photo for a cafe. A rustic wooden board displaying three signature drinks: a "[딸기 라떼]", a "[아인슈페너]", and a "[청포도 에이드]". Each drink looks incredibly fresh and delicious. Elegant, handwritten chalk-style text next to each item with price: "[생딸기 듬뿍 라떼 - 6.5]", "[시그니처 아인슈페너 - 6.0]", etc. Warm, inviting lighting.
+        prompt: `A mouth-watering menu board photo for a cafe. A rustic wooden board displaying three signature drinks: a "[딸기 라떼]", a "[아인슈페너]", a "[청포도 에이드]". Each drink looks incredibly fresh and delicious. Elegant, handwritten chalk-style text next to each item with price: "[생딸기 듬뿍 라떼 - 6.5]", "[시그니처 아인슈페너 - 6.0]", etc. Warm, inviting lighting.
 
 (카페를 위한 먹음직스러운 메뉴판 사진. "[딸기 라떼]", "[아인슈페너]", "[청포도 에이드]" 세 가지 시그니처 음료가 진열된 투박한 나무 보드. 각 음료는 믿을 수 없을 만큼 신선하고 맛있어 보임. 각 메뉴 옆에 가격과 함께 우아한 손글씨 분필 스타일 텍스트: "[생딸기 듬뿍 라떼 - 6.5]", "[시그니처 아인슈페너 - 6.0]" 등. 따뜻하고 매력적인 조명.)`
       }
@@ -136,7 +136,7 @@ const AIMoneyImagePromptsPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'AI 수익화 이미지 생성 프롬프트 - AI 야학당';
+    document.title = 'AI 비즈니스 이미지 생성 프롬프트 - AI 야학 도서관';
     window.scrollTo(0, 0);
   }, []);
 
@@ -197,10 +197,10 @@ const AIMoneyImagePromptsPage: React.FC = () => {
             AI Image Generation Toolkit
           </p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, marginBottom: '20px', lineHeight: 1.2 }}>
-            AI 수익화 이미지 생성 프롬프트 10선
+            AI 비즈니스 이미지 생성 프롬프트 10선
           </h1>
           <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: 1.7, opacity: 0.95 }}>
-            유튜브 썸네일부터 제품 판매 이미지까지, 수익화에 바로 사용할 수 있는 10개의 실전 이미지 생성 프롬프트입니다.<br />
+            유튜브 썸네일부터 제품 설명 이미지까지, 상업적으로 바로 사용할 수 있는 10개의 실전 이미지 생성 프롬프트입니다.<br />
             Gemini 3 Pro, ChatGPT, Midjourney 등 다양한 AI 도구에 복사·붙여넣기만 하면 고퀄리티 이미지가 완성됩니다.
           </p>
           <div style={{
@@ -254,7 +254,7 @@ const AIMoneyImagePromptsPage: React.FC = () => {
               { src: '/images/cafe_menu_board.png', alt: '카페 메뉴판 예제' },
               { src: '/images/finance_thumbnail.png', alt: '재테크 썸네일 예제' },
               { src: '/images/restaurant_food_review.png', alt: '맛집 리뷰 예제' },
-              { src: '/images/ai_ebook_cover.png', alt: 'AI 수익화 예제' }
+              { src: '/images/ai_ebook_cover.png', alt: 'AI 비즈니스 예제' }
             ].map((image, index) => (
               <div
                 key={index}
@@ -344,7 +344,7 @@ const AIMoneyImagePromptsPage: React.FC = () => {
       <div style={{ padding: '60px 20px', background: CARD_BG }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '30px' }}>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0d1b2a', marginBottom: '15px' }}>
-            💰 실전 수익화 이미지 생성 프롬프트 10선
+            💰 실전 비즈니스 이미지 생성 프롬프트 10선
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             {imageSections.map((section) => (

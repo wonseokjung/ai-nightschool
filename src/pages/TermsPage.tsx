@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 const TermsPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = '이용약관 - AI 야학당';
+        document.title = '이용약관 - AI 야학 도서관';
     }, []);
 
     return (
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 24px', color: '#e2e8f0', lineHeight: '1.8' }}>
             <h1 style={{ fontSize: '2rem', marginBottom: '30px', color: '#f8fafc' }}>이용약관</h1>
             <p style={{ marginBottom: '20px' }}>
-                본 약관은 AI 야학당(이하 '회사')이 제공하는 서비스의 이용조건 및 절차, 이용자와 회사의 권리, 의무, 책임사항을 규정함을 목적으로 합니다.
+                본 약관은 AI 야학 도서관(이하 '회사')이 제공하는 서비스의 이용조건 및 절차, 이용자와 회사의 권리, 의무, 책임사항을 규정함을 목적으로 합니다.
             </p>
 
             <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>1. 저작권의 귀속 및 이용제한</h2>

@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 const PrivacyPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = '개인정보처리방침 - AI 야학당';
+        document.title = '개인정보처리방침 - AI 야학 도서관';
     }, []);
 
     return (
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 24px', color: '#e2e8f0', lineHeight: '1.8' }}>
             <h1 style={{ fontSize: '2rem', marginBottom: '30px', color: '#f8fafc' }}>개인정보처리방침</h1>
             <p style={{ marginBottom: '20px' }}>
-                AI 야학당(이하 '회사')은 개인정보 보호법 등 관련 법령을 준수하며, 이용자의 개인정보 보호를 중요하게 생각합니다.
+                AI 야학 도서관(이하 '회사')은 개인정보 보호법 등 관련 법령을 준수하며, 이용자의 개인정보 보호를 중요하게 생각합니다.
             </p>
 
             <h2 style={{ fontSize: '1.4rem', marginTop: '40px', marginBottom: '16px', color: '#f8fafc' }}>1. 수집하는 개인정보 항목</h2>

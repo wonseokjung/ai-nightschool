@@ -54,7 +54,7 @@ const Header = () => {
                         fontWeight: 700,
                         color: '#f8fafc'
                     }}>
-                        AI 야학당
+                        AI 야학 도서관
                     </span>
                 </Link>
 

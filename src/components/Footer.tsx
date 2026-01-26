@@ -24,7 +24,7 @@ const Footer = () => {
                             }}
                         />
                         <span style={{ fontWeight: 700, color: '#f8fafc' }}>
-                            AI 야학당
+                            AI 야학 도서관
                         </span>
                     </div>
                     <p style={{
@@ -91,7 +91,7 @@ const Footer = () => {
                     <Link to="/terms" style={{ color: '#94a3b8', textDecoration: 'none' }}>이용약관</Link>
                 </div>
                 <div style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                    © 2026 AI 야학당. All rights reserved.
+                    © 2026 AI 야학 도서관. All rights reserved.
                 </div>
             </div>
         </footer>

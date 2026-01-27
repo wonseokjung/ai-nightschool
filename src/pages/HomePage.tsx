@@ -196,7 +196,7 @@ const HomePage = () => {
                         }}>
                             최신 교재 목록
                         </h2>
-                        <Link to="/browse" style={{
+                        <Link to="/category/prompts" style={{
                             color: '#60a5fa',
                             fontSize: '0.9rem',
                             display: 'flex',

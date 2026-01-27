@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, BookOpen, Image, Video, Zap } from 'lucide-react'
-import AdBanner from '../components/AdBanner'
 
-// 교재 데이터 (실제로는 별도 파일이나 API에서 가져옴)
+
+
+// 교재 데이터 - App.tsx 라우트에 실제 존재하는 페이지만 포함
 const textbooks = [
     {
         id: 'chatgpt-prompts-40plus',
@@ -10,22 +11,6 @@ const textbooks = [
         title: '40대+ 직장인을 위한 ChatGPT 프롬프트 100선',
         subtitle: '실전 업무 최적화 프롬프트 모음',
         description: '경험 많은 직장인을 위한 AI 활용 가이드북. 보고서, 이메일, 기획안 작성에 바로 쓸 수 있는 프롬프트!',
-        isNew: true
-    },
-    {
-        id: 'ai-agent-basics',
-        category: 'automation',
-        title: '📘 자동화 에이전트의 기초',
-        subtitle: '노코드에서 에이전틱까지',
-        description: 'AI에게 일 잘 시키는 법: n8n과 Antigravity 비교',
-        isNew: true
-    },
-    {
-        id: 'ai-automation-agent-build',
-        category: 'automation',
-        title: '🚀 자동화 에이전트 B.U.I.L.D',
-        subtitle: 'Google Automation Agent System Prompt',
-        description: 'Gemini 3 + Veo 3.1 기반의 완전 자동화 영상 생성 시스템 구축 프롬프트',
         isNew: true
     },
     {
@@ -53,20 +38,12 @@ const textbooks = [
         isNew: false
     },
     {
-        id: 'ai-character-video-prompts',
-        category: 'video',
-        title: '🎭 AI 캐릭터 영상 생성',
-        subtitle: '유튜브 CEO 경고, VideoBERT 분석',
-        description: '사람 같은 고퀄리티 캐릭터 만들고 영상으로 변환하는 JSON 프롬프트',
+        id: 'andrew-ng-ai-vision',
+        category: 'automation',
+        title: '앤드류 응의 AI 비전: 지금 바로 만들어라',
+        subtitle: '코딩보다 기획이 중요한 시대의 생존 전략',
+        description: 'AI 거장 앤드류 응이 말하는 AI Agent 시대의 기회와 전략',
         isNew: true
-    },
-    {
-        id: 'ai-landlord-preview',
-        category: 'prompts',
-        title: '🏗️ AI 건물주 되기 (프리뷰)',
-        subtitle: '1960년대 맨해튼 부동산의 비밀',
-        description: '맨해튼 부동산 비밀을 AI 콘텐츠 시장에 적용하는 방법',
-        isNew: false
     }
 ]
 
@@ -171,7 +148,7 @@ const CategoryPage = () => {
             </section>
 
             {/* Ad Banner */}
-            <AdBanner position="top" />
+
 
             {/* Textbooks Grid */}
             <section style={{
@@ -299,7 +276,7 @@ const CategoryPage = () => {
             </section>
 
             {/* Bottom Ad */}
-            <AdBanner position="bottom" />
+
         </div>
     )
 }

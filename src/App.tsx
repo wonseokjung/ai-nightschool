@@ -14,6 +14,7 @@ import AIMoneyVideoPromptsPage from './pages/AIMoneyVideoPromptsPage'
 import AIRealisticCharacterVideoPage from './pages/AIRealisticCharacterVideoPage'
 import AIVideoGenerationPromptsPage from './pages/AIVideoGenerationPromptsPage'
 import PrivacyPage from './pages/PrivacyPage'
+import NotebookLMPromptPage from './pages/NotebookLMPromptPage'
 import TermsPage from './pages/TermsPage'
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                     {/* 자동화 교재들 */}
                     <Route path="/textbook/ai-agent-basics" element={<AIAgentBasicsTextbook />} />
                     <Route path="/textbook/andrew-ng-ai-vision" element={<AndrewNgAIVisionPage />} />
+                    <Route path="/textbook/notebooklm-mcp-guide" element={<NotebookLMPromptPage />} />
 
                     {/* 법적 고지 */}
                     <Route path="/privacy" element={<PrivacyPage />} />

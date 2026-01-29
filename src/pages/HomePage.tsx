@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Search, ArrowRight, Eye, Star } from 'lucide-react'
+import { Search, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { textbooks, categories, levels, getCategoryCount } from '../data/textbooks'
 
@@ -149,29 +149,7 @@ const HomePage = () => {
                         </button>
                     </div>
 
-                    {/* Popular Searches */}
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '12px',
-                        flexWrap: 'wrap'
-                    }}>
-                        <span style={{ color: '#64748b', fontSize: '0.85rem' }}>인기:</span>
-                        {['ChatGPT 프롬프트', 'Midjourney V6', 'AI 수익화'].map((term) => (
-                            <button
-                                key={term}
-                                onClick={() => setSearchQuery(term)}
-                                style={{
-                                    color: '#60a5fa',
-                                    fontSize: '0.85rem',
-                                    background: 'none',
-                                    textDecoration: 'underline'
-                                }}
-                            >
-                                {term}
-                            </button>
-                        ))}
-                    </div>
+
                 </div>
             </section>
 
@@ -336,22 +314,7 @@ const HomePage = () => {
                                     </p>
 
                                     {/* Meta */}
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        fontSize: '0.75rem',
-                                        color: '#64748b'
-                                    }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                            <Eye size={14} />
-                                            <span>{(textbook.views || 0).toLocaleString()} views</span>
-                                        </div>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                            <Star size={14} fill="#fbbf24" color="#fbbf24" />
-                                            <span>4.8</span>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </Link>
                         ))}

@@ -109,8 +109,8 @@ const NotebookLMPromptPage: React.FC = () => {
                 }}
             >
                 <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                    <p style={{ letterSpacing: '0.3em', textTransform: 'uppercase', color: BRAND_GOLD, fontWeight: 600, marginBottom: '14px' }}>
-                        AI Persona Prompt
+                    <p style={{ letterSpacing: '0.1em', textTransform: 'uppercase', color: BRAND_GOLD, fontWeight: 600, marginBottom: '14px' }}>
+                        AI Persona Prompt • 연습 샘플 버전
                     </p>
                     <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, marginBottom: '20px', lineHeight: 1.2 }}>
                         NotebookLM MCP X 안티그래비티 연결하기
@@ -187,21 +187,7 @@ const NotebookLMPromptPage: React.FC = () => {
                         </div>
                     </div>
 
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '14px',
-                        padding: '25px',
-                        borderLeft: `5px solid ${BRAND_GOLD}`,
-                        boxShadow: '0 10px 20px rgba(15, 23, 42, 0.05)'
-                    }}>
-                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '10px', color: '#1e293b' }}>
-                            💡 사용 팁
-                        </h3>
-                        <p style={{ margin: 0, color: '#475569', lineHeight: 1.6 }}>
-                            이 프롬프트를 복사하여 Claude, ChatGPT 등의 AI에게 입력하면,<br />
-                            친근하고 유쾌한 <b>'코다리 부장'</b> 페르소나와 함께 NotebookLM MCP 설치 실습을 진행할 수 있습니다.
-                        </p>
-                    </div>
+
 
                 </div>
             </div>

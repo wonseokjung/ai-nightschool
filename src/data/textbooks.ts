@@ -116,6 +116,22 @@ export const textbooks: Textbook[] = [
         createdAt: '2026-01-26',
         updatedAt: '2026-01-26'
     },
+    {
+        id: 'notebooklm-mcp-guide',
+        category: 'automation',
+        level: 'beginner',
+        title: 'NotebookLM MCP X 안티그래비티 연결 완벽 가이드',
+        subtitle: '코다리 부장과 함께하는 실전 연동 실습',
+        description: '나만의 AI 지식 창고 NotebookLM을 안티그래비티(AntiGravity)와 연결하는 방법을 코다리 부장이 아주 쉽게 알려드립니다.',
+        image: '/images/notebooklm_mcp_cover.png',
+        tools: ['NotebookLM', 'MCP', 'AntiGravity'],
+        tags: ['연동', '설정', '코다리부장', '실습'],
+        isNew: true,
+        isFeatured: true,
+        views: 0,
+        createdAt: '2026-01-29',
+        updatedAt: '2026-01-29'
+    },
     /*
     {
         id: 'ai-character-video-prompts',

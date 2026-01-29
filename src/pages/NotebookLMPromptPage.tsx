@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Copy, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Copy, CheckCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
 
 const BRAND_NAVY = '#0b1220';
 const BRAND_BLUE = '#112a70';
@@ -63,9 +63,19 @@ const NotebookLMPromptPage: React.FC = () => {
 
 [Initialization] 위 페르소나를 장착하고, [Origin Protocol]을 준수한 상태로 첫 인사를 건네며 1단계 '설치'부터 안내를 시작하십시오.`;
 
-    const copyToClipboard = async () => {
+    const [showModal, setShowModal] = useState(false);
+
+    // 모달을 여는 함수 (기존 복사 버튼에 연결)
+    const handleCopyClick = () => {
+        if (copied) return;
+        setShowModal(true);
+    };
+
+    // 실제 복사 실행 함수 (모달 confirm 시 실행)
+    const executeCopy = async () => {
         try {
             await navigator.clipboard.writeText(promptText);
+            setShowModal(false); // 모달 닫기
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (error) {
@@ -138,7 +148,7 @@ const NotebookLMPromptPage: React.FC = () => {
                                 🐟 프롬프트 전체 복사
                             </h2>
                             <button
-                                onClick={copyToClipboard}
+                                onClick={handleCopyClick}
                                 style={{
                                     background: copied ? '#16a34a' : BRAND_GOLD,
                                     color: copied ? 'white' : '#ffffff',
@@ -191,7 +201,112 @@ const NotebookLMPromptPage: React.FC = () => {
 
                 </div>
             </div>
-        </div>
+
+            {/* 저작권 경고 모달 */}
+            {
+                showModal && (
+                    <div style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: 'rgba(0,0,0,0.7)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 9999,
+                        padding: '20px',
+                        backdropFilter: 'blur(4px)'
+                    }}>
+                        <div style={{
+                            background: 'white',
+                            padding: '30px',
+                            borderRadius: '20px',
+                            maxWidth: '500px',
+                            width: '100%',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+                            border: '1px solid #e2e8f0',
+                            animation: 'fadeIn 0.2s ease-out'
+                        }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                                <div style={{
+                                    width: '60px',
+                                    height: '60px',
+                                    background: '#fef2f2',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: '20px'
+                                }}>
+                                    <AlertTriangle size={30} color="#ef4444" />
+                                </div>
+
+                                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1b263b', marginBottom: '16px' }}>
+                                    ⚠️ 저작권 및 사용 규정 안내
+                                </h3>
+
+                                <p style={{ color: '#475569', lineHeight: 1.6, marginBottom: '24px', fontSize: '1rem', wordBreak: 'keep-all' }}>
+                                    본 프롬프트의 저작권은 <b>Connect AI LAB</b>에 있습니다.<br /><br />
+                                    타사 강의, 교육 자료, 유료 콘텐츠 등에서 출처 표기 없이 무단으로 도용하거나 상업적으로 이용하는 경우, <b>저작권법 위반으로 법적 책임</b>을 질 수 있습니다.
+                                </p>
+
+                                <div style={{
+                                    background: '#f1f5f9',
+                                    padding: '16px',
+                                    borderRadius: '12px',
+                                    width: '100%',
+                                    marginBottom: '24px'
+                                }}>
+                                    <p style={{ margin: 0, color: '#0f172a', fontWeight: 600, fontSize: '1.05rem' }}>
+                                        위 규정을 확인하였으며,<br />무단으로 사용하지 않으시겠습니까?
+                                    </p>
+                                </div>
+
+                                <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
+                                    <button
+                                        onClick={() => setShowModal(false)}
+                                        style={{
+                                            flex: 1,
+                                            padding: '14px',
+                                            borderRadius: '12px',
+                                            background: '#f1f5f9',
+                                            color: '#64748b',
+                                            border: 'none',
+                                            fontWeight: 700,
+                                            fontSize: '1rem',
+                                            cursor: 'pointer',
+                                            transition: 'background 0.2s'
+                                        }}
+                                    >
+                                        아니요 (취소)
+                                    </button>
+                                    <button
+                                        onClick={executeCopy}
+                                        style={{
+                                            flex: 1,
+                                            padding: '14px',
+                                            borderRadius: '12px',
+                                            background: '#16a34a',
+                                            color: 'white',
+                                            border: 'none',
+                                            fontWeight: 700,
+                                            fontSize: '1rem',
+                                            cursor: 'pointer',
+                                            boxShadow: '0 4px 6px -1px rgba(22, 163, 74, 0.4)',
+                                            transition: 'transform 0.1s'
+                                        }}
+                                    >
+                                        네, 동의합니다 (복사)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        </div >
     );
 };
 

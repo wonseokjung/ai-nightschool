@@ -4,94 +4,104 @@ import { Youtube, MessageCircle } from 'lucide-react'
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
-                {/* Brand */}
-                <div className="footer-section" style={{ alignItems: 'center' }}>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        marginBottom: '16px',
-                        justifyContent: 'center'
-                    }}>
-                        <img
-                            src="/favicon.jpg"
-                            alt="AI 야학당"
-                            style={{
+            <div className="container" style={{ padding: '60px 24px 40px' }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '40px',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)',
+                    paddingBottom: '60px'
+                }}>
+                    {/* Brand Section */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <div style={{
                                 width: '32px',
                                 height: '32px',
-                                borderRadius: '8px'
-                            }}
-                        />
-                        <span style={{ fontWeight: 700, color: '#f8fafc' }}>
-                            AI 야학 도서관
-                        </span>
-                    </div>
-                    <p style={{
-                        color: '#64748b',
-                        fontSize: '0.9rem',
-                        lineHeight: 1.6,
-                        marginBottom: '20px',
-                        maxWidth: '500px'
-                    }}>
-                        누구나 쉽게 고품질 AI 교육을 받을 수 있도록 돕는 무료 프롬프트 가이드 플랫폼입니다.
-                    </p>
-                    <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
-                        <a
-                            href="https://www.youtube.com/@aimentorjay"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                width: '40px',
-                                height: '40px',
+                                background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                                borderRadius: '8px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                borderRadius: '12px',
-                                background: 'rgba(255, 255, 255, 0.05)',
-                                color: '#94a3b8',
-                                transition: 'all 0.2s'
-                            }}
-                        >
-                            <Youtube size={20} />
-                        </a>
-                        <a
-                            href="https://open.kakao.com/o/gJKmyiNg"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                width: '40px',
-                                height: '40px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                borderRadius: '12px',
-                                background: 'rgba(255, 255, 255, 0.05)',
-                                color: '#94a3b8',
-                                transition: 'all 0.2s'
-                            }}
-                        >
-                            <MessageCircle size={20} />
-                        </a>
+                                color: 'white',
+                                fontWeight: 'bold'
+                            }}>
+                                A
+                            </div>
+                            <span style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em' }}>
+                                Connect AI LAB
+                            </span>
+                        </div>
+                        <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.6', maxWidth: '300px' }}>
+                            The next-generation AI agent library for developers and creators. Built for the future of automation.
+                        </p>
+                        <div style={{ display: 'flex', gap: '12px' }}>
+                            <a
+                                href="https://www.youtube.com/@aimentorjay"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    width: '36px',
+                                    height: '36px',
+                                    borderRadius: '50%',
+                                    background: 'rgba(255,255,255,0.05)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: '#94a3b8',
+                                    border: '1px solid rgba(255,255,255,0.05)'
+                                }}
+                            >
+                                <Youtube size={18} />
+                            </a>
+                            <a
+                                href="https://open.kakao.com/o/gJKmyiNg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    width: '36px',
+                                    height: '36px',
+                                    borderRadius: '50%',
+                                    background: 'rgba(255,255,255,0.05)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: '#94a3b8',
+                                    border: '1px solid rgba(255,255,255,0.05)'
+                                }}
+                            >
+                                <MessageCircle size={18} />
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div className="footer-bottom" style={{
-                marginTop: '30px',
-                borderTop: '1px solid rgba(255,255,255,0.05)',
-                paddingTop: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '12px'
-            }}>
-                <div style={{ fontSize: '0.85rem' }}>
-                    <Link to="/privacy" style={{ color: '#94a3b8', marginRight: '20px', textDecoration: 'none' }}>개인정보처리방침</Link>
-                    <Link to="/terms" style={{ color: '#94a3b8', textDecoration: 'none' }}>이용약관</Link>
+
+                    <div>
+                        <h4 style={{ color: '#f8fafc', fontWeight: 600, marginBottom: '20px', fontSize: '0.95rem' }}>Legal</h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                            <Link to="/privacy" style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Privacy Policy</Link>
+                            <Link to="/terms" style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Terms of Service</Link>
+                        </div>
+                    </div>
                 </div>
-                <div style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                    © 2026 AI 야학 도서관. All rights reserved.
+
+                <div style={{
+                    marginTop: '40px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '20px',
+                    color: '#64748b',
+                    fontSize: '0.85rem'
+                }}>
+                    <div>
+                        © 2026 Connect AI LAB. All rights reserved.
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ width: '6px', height: '6px', background: '#10b981', borderRadius: '50%', display: 'inline-block' }}></span>
+                        All Systems Operational
+                    </div>
                 </div>
             </div>
         </footer>

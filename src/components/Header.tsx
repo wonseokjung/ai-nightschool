@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Search, Menu, X } from 'lucide-react'
+import { Search, Menu, X, Command } from 'lucide-react'
 import { useState } from 'react'
 
 const Header = () => {
@@ -7,10 +7,10 @@ const Header = () => {
     const location = useLocation()
 
     const navItems = [
+        { path: '/category/skills', label: '스킬' },
         { path: '/category/prompts', label: '프롬프트' },
-        { path: '/category/images', label: '이미지' },
-        { path: '/category/video', label: '영상' },
-        { path: '/category/automation', label: '자동화' }
+        { path: '/category/mcp', label: 'MCP' },
+        { path: '/category/workflows', label: '워크플로우' }
     ]
 
     const isActive = (path: string) => location.pathname === path
@@ -20,15 +20,12 @@ const Header = () => {
             position: 'sticky',
             top: 0,
             zIndex: 1000,
-            background: 'rgba(15, 23, 42, 0.95)',
-            backdropFilter: 'blur(20px)',
+            background: 'rgba(3, 7, 18, 0.8)',
+            backdropFilter: 'blur(16px)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}>
-            <div style={{
-                maxWidth: '1280px',
-                margin: '0 auto',
-                padding: '0 24px',
-                height: '64px',
+            <div className="container" style={{
+                height: '70px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between'
@@ -37,33 +34,42 @@ const Header = () => {
                 <Link to="/" style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px'
+                    gap: '12px'
                 }}>
-                    <img
-                        src="/favicon.jpg"
-                        alt="AI 야학당"
-                        style={{
-                            width: '36px',
-                            height: '36px',
-                            borderRadius: '8px',
-                            objectFit: 'cover'
-                        }}
-                    />
-                    <span style={{
-                        fontSize: '1.1rem',
-                        fontWeight: 700,
-                        color: '#f8fafc'
+                    <div style={{
+                        width: '32px',
+                        height: '32px',
+                        background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+                        borderRadius: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        fontWeight: 'bold',
+                        boxShadow: '0 0 15px rgba(59, 130, 246, 0.3)'
                     }}>
-                        AI 야학 도서관
+                        A
+                    </div>
+                    <span style={{
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                        color: '#f8fafc',
+                        letterSpacing: '-0.02em'
+                    }}>
+                        Antigravity Hub
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav style={{
+                <nav className="desktop-nav" style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px'
-                }} className="desktop-nav">
+                    gap: '6px',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    padding: '4px',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 255, 255, 0.05)'
+                }}>
                     {navItems.map((item) => (
                         <Link
                             key={item.path}
@@ -74,8 +80,9 @@ const Header = () => {
                                 fontSize: '0.9rem',
                                 fontWeight: 500,
                                 color: isActive(item.path) ? '#f8fafc' : '#94a3b8',
-                                background: isActive(item.path) ? 'rgba(59, 130, 246, 0.15)' : 'transparent',
-                                transition: 'all 0.2s ease'
+                                background: isActive(item.path) ? 'rgba(59, 130, 246, 0.1)' : 'transparent',
+                                transition: 'all 0.2s ease',
+                                border: isActive(item.path) ? '1px solid rgba(59, 130, 246, 0.2)' : '1px solid transparent'
                             }}
                         >
                             {item.label}
@@ -91,32 +98,45 @@ const Header = () => {
                 }}>
                     {/* Search Button */}
                     <button
+                        className="desktop-nav"
                         style={{
-                            width: '40px',
-                            height: '40px',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center',
-                            borderRadius: '10px',
+                            gap: '8px',
+                            padding: '8px 12px',
+                            borderRadius: '8px',
                             background: 'rgba(255, 255, 255, 0.05)',
                             color: '#94a3b8',
                             border: '1px solid rgba(255, 255, 255, 0.1)',
+                            fontSize: '0.85rem',
                             transition: 'all 0.2s ease'
                         }}
-                        className="desktop-nav"
                     >
-                        <Search size={18} />
+                        <Search size={16} />
+                        <span>Search...</span>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            background: 'rgba(0, 0, 0, 0.2)',
+                            padding: '2px 6px',
+                            borderRadius: '4px',
+                            fontSize: '0.75rem',
+                            gap: '2px'
+                        }}>
+                            <Command size={10} />
+                            <span>K</span>
+                        </div>
                     </button>
 
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="mobile-menu-btn"
                         style={{
                             display: 'none',
                             padding: '8px',
                             color: '#f8fafc'
                         }}
-                        className="mobile-menu-btn"
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -125,29 +145,33 @@ const Header = () => {
 
             {/* Mobile Navigation */}
             {isMenuOpen && (
-                <nav style={{
+                <nav className="mobile-nav" style={{
                     position: 'absolute',
                     top: '100%',
                     left: 0,
                     right: 0,
-                    background: 'rgba(15, 23, 42, 0.98)',
+                    background: 'rgba(3, 7, 18, 0.95)',
+                    backdropFilter: 'blur(20px)',
                     padding: '16px 24px 24px',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '8px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-                }} className="mobile-nav">
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                    height: '100vh'
+                }}>
                     {navItems.map((item) => (
                         <Link
                             key={item.path}
                             to={item.path}
                             onClick={() => setIsMenuOpen(false)}
                             style={{
-                                padding: '12px 16px',
-                                borderRadius: '10px',
+                                padding: '14px 16px',
+                                borderRadius: '12px',
                                 color: isActive(item.path) ? '#f8fafc' : '#94a3b8',
                                 background: isActive(item.path) ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                                fontWeight: 500
+                                fontWeight: 500,
+                                fontSize: '1rem',
+                                border: isActive(item.path) ? '1px solid rgba(59, 130, 246, 0.2)' : '1px solid transparent'
                             }}
                         >
                             {item.label}

@@ -1,227 +1,181 @@
-import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, BookOpen, Image, Video, Zap } from 'lucide-react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft, BookOpen, Image, Video, Zap, Box, Terminal, Layout, Server } from 'lucide-react'
+import { textbooks, categories } from '../data/textbooks'
+import React, { useEffect } from 'react'
 
-
-
-// 교재 데이터 - App.tsx 라우트에 실제 존재하는 페이지만 포함
-const textbooks = [
-    {
-        id: 'chatgpt-prompts-40plus',
-        category: 'prompts',
-        title: '40대+ 직장인을 위한 ChatGPT 프롬프트 100선',
-        subtitle: '실전 업무 최적화 프롬프트 모음',
-        description: '경험 많은 직장인을 위한 AI 활용 가이드북. 보고서, 이메일, 기획안 작성에 바로 쓸 수 있는 프롬프트!',
-        isNew: true
-    },
-    {
-        id: 'ai-money-master-prompts',
-        category: 'prompts',
-        title: 'AI Business Prompt Vault',
-        subtitle: '기획부터 마케팅까지 38개 실전 프롬프트',
-        description: '디지털 제품·콘텐츠 가치 창출을 위한 비즈니스 프롬프트 패키지',
-        isNew: false
-    },
-    {
-        id: 'ai-money-image-prompts',
-        category: 'images',
-        title: 'AI 비즈니스 이미지 생성 프롬프트 10선',
-        subtitle: '썸네일부터 제품 사진까지',
-        description: 'Gemini, ChatGPT, Midjourney로 만드는 상업용 고퀄리티 이미지',
-        isNew: false
-    },
-    {
-        id: 'ai-money-video-prompts',
-        category: 'video',
-        title: 'AI 커머셜 비디오 생성 프롬프트 10선',
-        subtitle: '숏폼부터 브랜드 광고까지',
-        description: 'Google Veo, Runway, Pika로 만드는 프로급 상업 영상 가이드',
-        isNew: false
-    },
-    {
-        id: 'andrew-ng-ai-vision',
-        category: 'automation',
-        title: '앤드류 응의 AI 비전: 지금 바로 만들어라',
-        subtitle: '코딩보다 기획이 중요한 시대의 생존 전략',
-        description: 'AI 거장 앤드류 응이 말하는 AI Agent 시대의 기회와 전략',
-        isNew: true
-    }
-]
-
-const categoryInfo: Record<string, { name: string; icon: React.ElementType; color: string; description: string }> = {
-    prompts: {
-        name: '📝 프롬프트',
-        icon: BookOpen,
-        color: '#8b5cf6',
-        description: 'ChatGPT, Gemini 등 텍스트 AI를 위한 프롬프트 모음'
-    },
-    images: {
-        name: '🖼️ 이미지 생성',
-        icon: Image,
-        color: '#10b981',
-        description: 'Midjourney, DALL-E, Gemini 이미지 생성 프롬프트'
-    },
-    video: {
-        name: '🎬 영상 생성',
-        icon: Video,
-        color: '#ef4444',
-        description: 'Veo, Runway, Pika 등 AI 영상 생성 가이드'
-    },
-    automation: {
-        name: '🤖 자동화',
-        icon: Zap,
-        color: '#3b82f6',
-        description: 'AI 에이전트, n8n, 자동화 워크플로우 구축'
-    }
+// Map category IDs to Lucide icons
+const iconMap: Record<string, React.ElementType> = {
+    skills: Zap,
+    prompts: BookOpen,
+    mcp: Server,
+    workflows: Layout,
+    images: Image,
+    video: Video,
+    automation: Terminal
 }
 
 const CategoryPage = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
-    const category = categoryInfo[categoryId || 'prompts']
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [categoryId]);
+
+    // Get category info from data/textbooks.ts
+    const categoryData = categories[categoryId || 'prompts']
+
+    // Get related textbooks
     const categoryTextbooks = textbooks.filter(t => t.category === categoryId)
 
-    if (!category) {
+    if (!categoryData) {
         return (
-            <div style={{ padding: '100px 24px', textAlign: 'center' }}>
-                <h1 style={{ color: 'white' }}>카테고리를 찾을 수 없습니다</h1>
-                <Link to="/" style={{ color: '#f59e0b' }}>홈으로 돌아가기</Link>
+            <div className="container" style={{ padding: '100px 24px', textAlign: 'center' }}>
+                <h1 style={{ color: 'white', marginBottom: '20px' }}>모듈을 찾을 수 없습니다</h1>
+                <button onClick={() => navigate('/')} className="btn btn-secondary">메인으로 돌아가기</button>
             </div>
         )
     }
 
+    const IconComponent = iconMap[categoryId || 'prompts'] || Box
+
     return (
-        <div>
+        <div style={{ paddingBottom: '80px' }}>
             {/* Header */}
             <section style={{
-                padding: '40px 24px 60px',
-                background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1527 100%)',
-                textAlign: 'center'
+                position: 'relative',
+                padding: '80px 24px 60px',
+                textAlign: 'center',
+                overflow: 'hidden'
             }}>
-                <Link
-                    to="/"
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        color: 'white',
-                        padding: '10px 20px',
-                        borderRadius: '25px',
-                        marginBottom: '30px',
-                        fontSize: '0.9rem'
-                    }}
-                >
-                    <ArrowLeft size={18} />
-                    홈으로 돌아가기
-                </Link>
-
+                {/* Background Glow */}
                 <div style={{
-                    width: '80px',
-                    height: '80px',
-                    margin: '0 auto 20px',
-                    borderRadius: '20px',
-                    background: `${category.color}20`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    <category.icon size={40} color={category.color} />
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '60%',
+                    height: '60%',
+                    background: `radial-gradient(circle at center, ${categoryData.color}15 0%, transparent 70%)`,
+                    zIndex: -1,
+                    filter: 'blur(80px)'
+                }} />
+
+                <div className="container">
+                    <button
+                        onClick={() => navigate('/')}
+                        className="btn btn-secondary"
+                        style={{
+                            display: 'inline-flex',
+                            marginBottom: '40px',
+                            padding: '8px 20px',
+                            fontSize: '0.85rem'
+                        }}
+                    >
+                        <ArrowLeft size={16} style={{ marginRight: '8px' }} />
+                        허브로 돌아가기
+                    </button>
+
+                    <div style={{
+                        width: '80px',
+                        height: '80px',
+                        margin: '0 auto 24px',
+                        borderRadius: '24px',
+                        background: `linear-gradient(135deg, ${categoryData.color}20, ${categoryData.color}10)`,
+                        border: `1px solid ${categoryData.color}30`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: `0 0 30px ${categoryData.color}20`
+                    }}>
+                        <IconComponent size={40} color={categoryData.color} />
+                    </div>
+
+                    <h1 style={{
+                        fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                        fontWeight: 800,
+                        color: 'white',
+                        marginBottom: '16px',
+                        letterSpacing: '-0.02em'
+                    }}>
+                        {categoryData.name} <span className="text-gradient">Hub</span>
+                    </h1>
+
+                    <p style={{
+                        color: 'var(--color-text-secondary)',
+                        fontSize: '1.1rem',
+                        maxWidth: '500px',
+                        margin: '0 auto'
+                    }}>
+                        {categoryData.description}
+                    </p>
                 </div>
-
-                <h1 style={{
-                    fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-                    fontWeight: 800,
-                    color: 'white',
-                    marginBottom: '12px'
-                }}>
-                    {category.name}
-                </h1>
-
-                <p style={{
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    fontSize: '1.1rem',
-                    maxWidth: '500px',
-                    margin: '0 auto'
-                }}>
-                    {category.description}
-                </p>
             </section>
 
-            {/* Ad Banner */}
-
-
             {/* Textbooks Grid */}
-            <section style={{
-                padding: '40px 24px 80px',
-                maxWidth: '1200px',
-                margin: '0 auto'
-            }}>
+            <section className="container">
                 <div style={{
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    marginBottom: '24px'
+                    marginBottom: '32px',
+                    paddingBottom: '20px',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)'
                 }}>
                     <h2 style={{
                         fontSize: '1.25rem',
                         fontWeight: 600,
-                        color: 'white'
+                        color: 'white',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px'
                     }}>
-                        총 {categoryTextbooks.length}개 교재
+                        <Box size={20} className="text-gradient" />
+                        사용 가능한 리소스
+                        <span style={{
+                            fontSize: '0.85rem',
+                            background: 'rgba(255,255,255,0.1)',
+                            padding: '2px 8px',
+                            borderRadius: '12px',
+                            color: '#94a3b8'
+                        }}>
+                            {categoryTextbooks.length}
+                        </span>
                     </h2>
                 </div>
 
                 {categoryTextbooks.length === 0 ? (
                     <div style={{
                         textAlign: 'center',
-                        padding: '60px 20px',
-                        color: 'rgba(255, 255, 255, 0.5)'
+                        padding: '80px 20px',
+                        background: 'rgba(255,255,255,0.02)',
+                        borderRadius: '24px',
+                        border: '1px dashed rgba(255,255,255,0.1)'
                     }}>
-                        <p style={{ fontSize: '3rem', marginBottom: '16px' }}>📚</p>
-                        <p>아직 이 카테고리에 교재가 없습니다.</p>
-                        <p>곧 추가될 예정이에요!</p>
+                        <div style={{ fontSize: '3rem', marginBottom: '20px', opacity: 0.5 }}>🚧</div>
+                        <h3 style={{ color: 'white', marginBottom: '8px' }}>리소스를 찾을 수 없습니다</h3>
+                        <p style={{ color: '#94a3b8' }}>이 카테고리의 새로운 콘텐츠는 현재 준비 중입니다.</p>
                     </div>
                 ) : (
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                        gap: '24px'
-                    }}>
+                    <div className="textbook-grid">
                         {categoryTextbooks.map((textbook) => (
                             <Link
                                 key={textbook.id}
                                 to={`/textbook/${textbook.id}`}
-                                style={{
-                                    background: 'var(--color-bg-card)',
-                                    borderRadius: '20px',
-                                    overflow: 'hidden',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    transition: 'all 0.3s ease',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
+                                className="card"
+                                style={{ display: 'flex', flexDirection: 'column' }}
                             >
-                                {/* Image Placeholder */}
+                                {/* Simplied Card Header */}
                                 <div style={{
-                                    height: '160px',
-                                    background: `linear-gradient(135deg, ${category.color}20, ${category.color}05)`,
+                                    padding: '24px 24px 0',
                                     display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    position: 'relative'
+                                    justifyContent: 'flex-end',
+                                    alignItems: 'center'
                                 }}>
-                                    <span style={{ fontSize: '4rem' }}>📚</span>
                                     {textbook.isNew && (
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: '12px',
-                                            left: '12px',
-                                            background: 'linear-gradient(135deg, #f59e0b, #fbbf24)',
-                                            color: '#0a0f1a',
-                                            padding: '6px 12px',
-                                            borderRadius: '20px',
-                                            fontSize: '0.75rem',
-                                            fontWeight: 700
+                                        <div className="badge badge-new" style={{
+                                            zIndex: 3,
+                                            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
                                         }}>
                                             NEW
                                         </div>
@@ -229,44 +183,30 @@ const CategoryPage = () => {
                                 </div>
 
                                 {/* Content */}
-                                <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                     <h3 style={{
                                         color: 'white',
                                         fontSize: '1.1rem',
                                         fontWeight: 700,
                                         marginBottom: '8px',
-                                        lineHeight: 1.3
+                                        lineHeight: 1.4,
+                                        letterSpacing: '-0.01em'
                                     }}>
                                         {textbook.title}
                                     </h3>
+
                                     <p style={{
-                                        color: category.color,
-                                        fontSize: '0.85rem',
-                                        fontWeight: 500,
-                                        marginBottom: '8px'
-                                    }}>
-                                        {textbook.subtitle}
-                                    </p>
-                                    <p style={{
-                                        color: '#64748b',
-                                        fontSize: '0.85rem',
-                                        lineHeight: 1.5,
-                                        flex: 1
+                                        color: '#94a3b8',
+                                        fontSize: '0.9rem',
+                                        lineHeight: 1.6,
+                                        flex: 1,
+                                        marginBottom: '24px'
                                     }}>
                                         {textbook.description}
                                     </p>
 
-                                    <button style={{
-                                        marginTop: '16px',
-                                        width: '100%',
-                                        background: 'linear-gradient(135deg, #f59e0b, #fbbf24)',
-                                        color: '#0a0f1a',
-                                        padding: '12px',
-                                        borderRadius: '10px',
-                                        fontWeight: 700,
-                                        fontSize: '0.9rem'
-                                    }}>
-                                        무료로 보기
+                                    <button className="btn btn-primary" style={{ width: '100%' }}>
+                                        리소스 확인하기
                                     </button>
                                 </div>
                             </Link>
@@ -274,9 +214,6 @@ const CategoryPage = () => {
                     </div>
                 )}
             </section>
-
-            {/* Bottom Ad */}
-
         </div>
     )
 }

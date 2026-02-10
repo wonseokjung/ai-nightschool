@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Search, ArrowRight } from 'lucide-react'
+import { Search, ArrowRight, Sparkles, Zap, Box } from 'lucide-react'
 import { useState } from 'react'
-import { textbooks, categories, levels, getCategoryCount } from '../data/textbooks'
+import { textbooks, categories, getCategoryCount } from '../data/textbooks'
 
 const HomePage = () => {
     const [activeFilter, setActiveFilter] = useState('all')
@@ -9,10 +9,10 @@ const HomePage = () => {
 
     const filters = [
         { id: 'all', label: '전체' },
+        { id: 'skills', label: '스킬' },
         { id: 'prompts', label: '프롬프트' },
-        { id: 'images', label: '이미지 생성' },
-        { id: 'video', label: '영상 생성' },
-        { id: 'automation', label: '자동화' }
+        { id: 'mcp', label: 'MCP' },
+        { id: 'workflows', label: '워크플로우' }
     ]
 
     const filteredTextbooks = textbooks.filter(t => {
@@ -21,135 +21,102 @@ const HomePage = () => {
         return true
     })
 
-    const popularCategories = Object.values(categories).map(cat => ({
-        ...cat,
-        count: getCategoryCount(cat.id)
+    // Trending Categories (Focus on the new main ones)
+    const trendingCategories = ['skills', 'prompts', 'mcp', 'workflows'].map(id => ({
+        ...categories[id],
+        count: getCategoryCount(id)
     }))
 
     return (
-        <div>
-            {/* Hero Section with Banner Image */}
+        <div style={{ paddingBottom: '80px' }}>
+            {/* Hero Section */}
             <section style={{
-                background: 'linear-gradient(180deg, #0f172a 0%, #1e293b 100%)',
-                padding: '40px 24px 60px',
-                textAlign: 'center'
+                position: 'relative',
+                padding: '120px 24px 100px',
+                textAlign: 'center',
+                overflow: 'hidden'
             }}>
-                <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+                {/* Background Decoration */}
+                <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '80%',
+                    height: '80%',
+                    background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 60%)',
+                    zIndex: -1,
+                    filter: 'blur(80px)'
+                }} />
+
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     {/* Badge */}
-                    <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'rgba(59, 130, 246, 0.15)',
-                        padding: '8px 16px',
-                        borderRadius: '20px',
-                        marginBottom: '24px',
-                        border: '1px solid rgba(59, 130, 246, 0.3)'
-                    }}>
-                        <span style={{ color: '#60a5fa', fontSize: '0.8rem' }}>●</span>
-                        <span style={{ color: '#60a5fa', fontWeight: 600, fontSize: '0.85rem' }}>
-                            NEW V2.0 LIBRARY LIVE
-                        </span>
-                    </div>
-
-
-
-
-                    {/* Hero Image */}
-                    <div style={{
-                        maxWidth: '800px',
-                        margin: '0 auto 32px',
-                        borderRadius: '20px',
-                        overflow: 'hidden',
-                        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)'
-                    }}>
-                        <img
-                            src="/images/hero-banner.jpg"
-                            alt="Connect AI LAB"
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                display: 'block'
-                            }}
-                        />
+                    <div className="badge badge-new" style={{ marginBottom: '32px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+                        <Sparkles size={14} style={{ color: '#fbbf24' }} />
+                        <span>ANTIGRAVITY SYSTEM V2.0 // VIBE CODING</span>
                     </div>
 
                     {/* Title */}
                     <h1 style={{
-                        fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                        fontSize: 'clamp(3rem, 6vw, 5rem)',
                         fontWeight: 800,
-                        color: '#f8fafc',
-                        marginBottom: '16px',
-                        lineHeight: 1.3
+                        marginBottom: '24px',
+                        lineHeight: 1.1,
+                        letterSpacing: '-0.03em'
                     }}>
-                        Connect AI LAB<br />
-                        <span style={{ color: '#3b82f6' }}>인공지능 교육 라이브러리</span>
+                        Antigravity<br />
+                        <span className="text-gradient">Vibe Coding Hub</span>
                     </h1>
 
                     {/* Subtitle */}
                     <p style={{
-                        color: '#94a3b8',
-                        fontSize: '1rem',
-                        maxWidth: '500px',
-                        margin: '0 auto 32px',
+                        color: 'var(--color-text-secondary)',
+                        fontSize: '1.2rem',
+                        maxWidth: '640px',
+                        margin: '0 auto 48px',
                         lineHeight: 1.6
                     }}>
-                        AI 1인 기업가와 실무자를 위한 고품질 교육 교재.<br />
-                        검증된 프롬프트와 실전 가이드를 무료로 만나보세요.
+                        구글의 에이전틱 툴, 바이브 코딩 강의, 그리고 MCP 서버까지.<br />
+                        당신의 1인 기업을 위한 모든 무기가 여기에 있습니다.
                     </p>
 
                     {/* Search Bar */}
-                    <div style={{
-                        maxWidth: '600px',
-                        margin: '0 auto 20px',
-                        position: 'relative'
-                    }}>
+                    <div className="search-container" style={{ marginBottom: '60px' }}>
                         <Search
                             size={20}
                             style={{
                                 position: 'absolute',
-                                left: '20px',
+                                left: '24px',
                                 top: '50%',
                                 transform: 'translateY(-50%)',
-                                color: '#64748b'
+                                color: 'var(--color-text-muted)'
                             }}
                         />
                         <input
                             type="text"
-                            placeholder="프롬프트, 도구 또는 가이드 검색..."
+                            placeholder="Search skills, lectures, or MCP servers..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            style={{
-                                width: '100%',
-                                padding: '18px 120px 18px 52px',
-                                background: '#1e293b',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                borderRadius: '14px',
-                                color: '#f8fafc',
-                                fontSize: '1rem',
-                                outline: 'none'
-                            }}
+                            className="search-input"
                         />
-                        <button style={{
+                        <div style={{
                             position: 'absolute',
-                            right: '8px',
+                            right: '12px',
                             top: '50%',
                             transform: 'translateY(-50%)',
-                            background: '#3b82f6',
-                            color: 'white',
-                            padding: '12px 24px',
-                            borderRadius: '10px',
-                            fontWeight: 600,
-                            fontSize: '0.9rem',
                             display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px'
+                            gap: '8px'
                         }}>
-                            검색
-                        </button>
+                            <span style={{
+                                background: 'rgba(255, 255, 255, 0.1)',
+                                color: 'var(--color-text-muted)',
+                                padding: '4px 8px',
+                                borderRadius: '6px',
+                                fontSize: '0.75rem',
+                                border: '1px solid rgba(255, 255, 255, 0.1)'
+                            }}>CMD+K</span>
+                        </div>
                     </div>
-
-
                 </div>
             </section>
 
@@ -157,31 +124,40 @@ const HomePage = () => {
             <div className="main-layout">
                 {/* Left Content */}
                 <main>
-
-
-                    {/* Latest Textbooks Section */}
+                    {/* Section Header */}
                     <div style={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        marginTop: '32px',
-                        marginBottom: '16px'
+                        marginBottom: '32px'
                     }}>
                         <h2 style={{
-                            fontSize: '1.25rem',
+                            fontSize: '1.5rem',
                             fontWeight: 700,
-                            color: '#f8fafc'
+                            color: 'var(--color-text-primary)',
+                            letterSpacing: '-0.02em',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px'
                         }}>
-                            최신 교재 목록
+                            <span style={{
+                                width: '10px',
+                                height: '10px',
+                                background: '#3b82f6',
+                                borderRadius: '2px',
+                                boxShadow: '0 0 10px #3b82f6'
+                            }} />
+                            안티그래비티 리소스
                         </h2>
                         <Link to="/category/prompts" style={{
-                            color: '#60a5fa',
+                            color: 'var(--color-text-secondary)',
                             fontSize: '0.9rem',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '4px'
+                            gap: '6px',
+                            transition: 'color 0.2s'
                         }}>
-                            전체 보기 <ArrowRight size={16} />
+                            전체 보기 <ArrowRight size={14} />
                         </Link>
                     </div>
 
@@ -205,149 +181,102 @@ const HomePage = () => {
                                 key={textbook.id}
                                 to={`/textbook/${textbook.id}`}
                                 className="card"
-                                style={{ display: 'block' }}
+                                style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                             >
-                                {/* Card Image */}
+                                {/* Simplied Card Header */}
                                 <div style={{
-                                    position: 'relative',
-                                    paddingBottom: '56%',
-                                    background: 'linear-gradient(135deg, #1e293b, #334155)',
-                                    overflow: 'hidden'
+                                    padding: '24px 24px 0',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center'
                                 }}>
-                                    {/* Placeholder Icon */}
-                                    <div style={{
-                                        position: 'absolute',
-                                        inset: 0,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        zIndex: 0
-                                    }}>
-                                        <span style={{ fontSize: '3rem', opacity: 0.3 }}>
-                                            {categories[textbook.category]?.icon || '📚'}
-                                        </span>
-                                    </div>
-
-                                    {textbook.image ? (
-                                        <img
-                                            src={textbook.image}
-                                            alt={textbook.title}
-                                            style={{
-                                                position: 'absolute',
-                                                inset: 0,
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                zIndex: 1
-                                            }}
-                                            onError={(e) => {
-                                                (e.target as HTMLImageElement).style.display = 'none'
-                                            }}
-                                        />
-                                    ) : null}
-
-                                    {/* Badges */}
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '12px',
-                                        left: '12px',
-                                        display: 'flex',
-                                        gap: '6px'
-                                    }}>
-                                        <span
-                                            className="badge badge-category"
-                                            style={{
-                                                background: categories[textbook.category]?.color + '30',
-                                                color: categories[textbook.category]?.color
-                                            }}
-                                        >
-                                            {categories[textbook.category]?.name}
-                                        </span>
-                                        {textbook.isNew && (
-                                            <span className="badge badge-new">New</span>
-                                        )}
-                                    </div>
-
-                                    {/* Level Badge */}
-                                    <div style={{
-                                        position: 'absolute',
-                                        bottom: '12px',
-                                        right: '12px'
-                                    }}>
-                                        <span style={{
-                                            background: 'rgba(0, 0, 0, 0.7)',
+                                    <span
+                                        className="badge badge-category"
+                                        style={{
+                                            background: 'rgba(59, 130, 246, 0.1)',
+                                            border: `1px solid ${categories[textbook.category]?.color || '#3b82f6'}30`,
+                                            color: categories[textbook.category]?.color || '#3b82f6',
                                             padding: '4px 10px',
-                                            borderRadius: '6px',
-                                            fontSize: '0.7rem',
-                                            color: levels[textbook.level]?.color
-                                        }}>
-                                            {levels[textbook.level]?.icon} {levels[textbook.level]?.label}
-                                        </span>
-                                    </div>
+                                            fontSize: '0.75rem',
+                                            fontWeight: 600,
+                                            borderRadius: '6px'
+                                        }}
+                                    >
+                                        <span style={{ marginRight: '6px' }}>{categories[textbook.category]?.icon || '⚡'}</span>
+                                        {categories[textbook.category]?.name || 'Module'}
+                                    </span>
+                                    {textbook.isNew && (
+                                        <span className="badge badge-new" style={{ boxShadow: '0 0 10px rgba(245, 158, 11, 0.2)' }}>NEW</span>
+                                    )}
                                 </div>
 
                                 {/* Card Content */}
-                                <div style={{ padding: '16px' }}>
+                                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                     <h3 style={{
-                                        fontSize: '0.95rem',
-                                        fontWeight: 600,
+                                        fontSize: '1.1rem',
+                                        fontWeight: 700,
                                         color: '#f8fafc',
-                                        marginBottom: '6px',
+                                        marginBottom: '12px',
                                         lineHeight: 1.4,
-                                        display: '-webkit-box',
-                                        WebkitLineClamp: 2,
-                                        WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden'
+                                        letterSpacing: '-0.01em'
                                     }}>
                                         {textbook.title}
                                     </h3>
                                     <p style={{
-                                        fontSize: '0.8rem',
-                                        color: '#64748b',
-                                        marginBottom: '12px',
-                                        display: '-webkit-box',
-                                        WebkitLineClamp: 2,
-                                        WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden'
+                                        fontSize: '0.9rem',
+                                        color: '#94a3b8',
+                                        marginBottom: '20px',
+                                        flex: 1,
+                                        lineHeight: 1.6
                                     }}>
                                         {textbook.description}
                                     </p>
 
-                                    {/* Meta */}
-
+                                    {/* Footer Meta */}
+                                    <div style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        paddingTop: '16px',
+                                        borderTop: '1px solid rgba(255,255,255,0.05)'
+                                    }}>
+                                        <div style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '8px',
+                                            fontSize: '0.8rem',
+                                            color: '#64748b'
+                                        }}>
+                                            <span>Connect AI LAB</span>
+                                        </div>
+                                        <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                                            {textbook.readTime}
+                                        </div>
+                                    </div>
                                 </div>
                             </Link>
                         ))}
                     </div>
-
-                    {/* 교재 개수가 많을 때만 페이지네이션 표시 */}
-                    {filteredTextbooks.length > 8 && (
-                        <div className="pagination">
-                            <button className="pagination-btn">{'<'}</button>
-                            <button className="pagination-btn active">1</button>
-                            <button className="pagination-btn">2</button>
-                            <button className="pagination-btn">{'>'}</button>
-                        </div>
-                    )}
                 </main>
 
                 {/* Right Sidebar */}
                 <aside className="sidebar">
-                    {/* Popular Categories */}
+                    {/* Trending Modules */}
                     <div className="sidebar-card">
                         <h3 className="sidebar-title">
-                            ⭐ 인기 카테고리
+                            <Zap size={18} style={{ color: '#fbbf24' }} />
+                            허브 탐험
                         </h3>
                         <div className="category-list">
-                            {popularCategories.map((cat) => (
+                            {trendingCategories.map((cat) => (
                                 <Link
                                     key={cat.id}
                                     to={`/category/${cat.id}`}
                                     className="category-item"
                                 >
                                     <span className="category-item-name">
-                                        <span>{cat.icon}</span>
-                                        <span>{cat.name}</span>
+                                        <span style={{ opacity: 0.9 }}>{cat.icon}</span>
+                                        <span style={{ fontWeight: 500 }}>{cat.name}</span>
                                     </span>
                                     <span className="category-item-count">{cat.count}</span>
                                 </Link>
@@ -355,9 +284,35 @@ const HomePage = () => {
                         </div>
                     </div>
 
+                    {/* System Status */}
+                    <div className="sidebar-card" style={{ marginTop: '24px' }}>
+                        <h3 className="sidebar-title">
+                            <Box size={18} style={{ color: '#3b82f6' }} />
+                            시스템 상태
+                        </h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem' }}>
+                                <span style={{ color: '#94a3b8' }}>Antigravity Engines</span>
+                                <span style={{
+                                    color: '#10b981',
+                                    background: 'rgba(16, 185, 129, 0.1)',
+                                    padding: '2px 8px',
+                                    borderRadius: '4px',
+                                    fontSize: '0.75rem'
+                                }}>정상 작동 중</span>
+                            </div>
 
-
-
+                            <div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#64748b', marginBottom: '6px' }}>
+                                    <span>Vibe Coding Index</span>
+                                    <span>High</span>
+                                </div>
+                                <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}>
+                                    <div style={{ width: '85%', height: '100%', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)', borderRadius: '2px' }} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </aside>
             </div>
         </div>

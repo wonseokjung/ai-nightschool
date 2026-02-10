@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Copy, CheckCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
-
-const BRAND_NAVY = '#0b1220';
-const BRAND_BLUE = '#112a70';
-const BRAND_GOLD = '#facc15';
-const CARD_BG = '#f7f8fb';
+import { Copy, CheckCircle, ArrowLeft, Sparkles, Terminal, Zap, PlayCircle } from 'lucide-react';
+import CopyrightModal from '../components/CopyrightModal';
 
 const NotebookLMPromptPage: React.FC = () => {
     const navigate = useNavigate();
+    const [copied, setCopied] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        document.title = 'NotebookLM MCP X 안티그래비티 연결하기 - AI 야학 도서관';
+        document.title = 'NotebookLM MCP X Antigravity - AI 야학당';
         window.scrollTo(0, 0);
     }, []);
 
-    const [copied, setCopied] = useState(false);
-
-    const promptText = `🐟 [프롬프트] NotebookLM MCP X 안티그래비티 연결하기 - 코다리 부장 (스파르타 학습 Ver.)
-당신은 지금부터 AI 1인 기업 대표님을 보좌하는 전설의 **'코다리 자동화 개발부장'**입니다. 아래의 **[Persona Instructions]**와 **[Origin Protocol]**을 뼛속 깊이 새기고 임무를 완벽하게 수행하십시오.
+    const promptText = `🐟 [연습용 프롬프트] 유튜브 촬영 및 학습 실습용 - 코다리 부장
+이 프롬프트는 유튜브 연습용 프롬프트입니다. 당신은 지금부터 AI 1인 기업 대표님을 보좌하는 전설의 **'코다리 자동화 개발부장'**입니다. 아래의 **[Persona Instructions]**와 **[Origin Protocol]**을 뼛속 깊이 새기고 임무를 완벽하게 수행하십시오.
 
 [⚠️ Origin & Ethics Protocol] (중요)
 
@@ -63,250 +59,165 @@ const NotebookLMPromptPage: React.FC = () => {
 
 [Initialization] 위 페르소나를 장착하고, [Origin Protocol]을 준수한 상태로 첫 인사를 건네며 1단계 '설치'부터 안내를 시작하십시오.`;
 
-    const [showModal, setShowModal] = useState(false);
-
-    // 모달을 여는 함수 (기존 복사 버튼에 연결)
     const handleCopyClick = () => {
         if (copied) return;
         setShowModal(true);
     };
 
-    // 실제 복사 실행 함수 (모달 confirm 시 실행)
     const executeCopy = async () => {
         try {
             await navigator.clipboard.writeText(promptText);
-            setShowModal(false); // 모달 닫기
+            setShowModal(false);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (error) {
-            console.error('프롬프트 복사 실패:', error);
+            console.error('Failed to copy prompt:', error);
         }
     };
 
     return (
-        <div className="masterclass-container">
-            {/* 뒤로가기 */}
-            <div style={{
-                padding: '16px 24px',
-                background: 'rgba(0,0,0,0.3)'
-            }}>
-                <button
-                    onClick={() => navigate(-1)}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        color: '#94a3b8',
-                        fontSize: '0.9rem',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer'
-                    }}
-                >
-                    <ArrowLeft size={18} />
-                    돌아가기
-                </button>
-            </div>
-
-            <div
-                style={{
-                    background: `radial-gradient(circle at 15% 20%, rgba(250,204,21,0.4), transparent 45%), linear-gradient(120deg, ${BRAND_NAVY} 0%, ${BRAND_BLUE} 60%, #1f3ca6 100%)`,
-                    color: '#ffffff',
-                    padding: '70px 20px',
-                    textAlign: 'center',
-                    position: 'relative',
-                    overflow: 'hidden'
-                }}
-            >
-                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                    <p style={{ letterSpacing: '0.1em', textTransform: 'uppercase', color: BRAND_GOLD, fontWeight: 600, marginBottom: '14px' }}>
-                        AI Persona Prompt • 연습 샘플 버전
-                    </p>
-                    <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontWeight: 800, marginBottom: '20px', lineHeight: 1.2 }}>
-                        NotebookLM MCP X 안티그래비티 연결하기
-                    </h1>
-                    <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', lineHeight: 1.7, opacity: 0.95 }}>
-                        안티그래비티(AntiGravity)와 NotebookLM을 연동하기 위한<br />
-                        코다리 부장의 스파르타 학습 가이드입니다.
-                    </p>
+        <div className="min-h-screen pb-20 bg-[#0f172a] text-slate-100 font-sans selection:bg-emerald-500/30">
+            {/* Header Section */}
+            <section className="relative pt-24 pb-16 overflow-hidden">
+                {/* Abstract Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]" />
+                    <div className="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]" />
                 </div>
-            </div>
 
-            <div style={{ padding: 'clamp(40px, 8vw, 70px) clamp(15px, 5vw, 20px)', background: CARD_BG }}>
-                <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+                <div className="container max-w-5xl mx-auto px-6 relative z-10">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm mb-12 font-medium"
+                    >
+                        <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+                            <ArrowLeft size={16} />
+                        </div>
+                        <span>허브로 돌아가기</span>
+                    </button>
 
-                    <div style={{
-                        background: 'white',
-                        borderRadius: '18px',
-                        padding: '30px',
-                        boxShadow: '0 20px 60px rgba(15, 23, 42, 0.1)',
-                        border: '1px solid #e2e8f0',
-                        marginBottom: '30px'
-                    }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1b263b', margin: 0 }}>
-                                🐟 프롬프트 전체 복사
-                            </h2>
+                    <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-10">
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-wide uppercase mb-6">
+                                <Zap size={12} />
+                                Antigravity Skill
+                            </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
+                                NotebookLM MCP
+                                <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+                                    Protocol Guide
+                                </span>
+                            </h1>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="text-right hidden md:block">
+                                <div className="text-xs text-slate-500 font-mono mb-1">VERSION</div>
+                                <div className="text-sm font-bold text-slate-300">v1.2.0</div>
+                            </div>
+                            <div className="h-8 w-[1px] bg-white/10 hidden md:block"></div>
+                            <div className="text-right hidden md:block">
+                                <div className="text-xs text-slate-500 font-mono mb-1">AUTHOR</div>
+                                <div className="text-sm font-bold text-slate-300">Connect AI LAB</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 bg-yellow-400/10 rounded-xl text-yellow-400 shrink-0">
+                                <Sparkles size={24} />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-white mb-2">학습 목표</h3>
+                                <p className="text-slate-300 leading-relaxed text-base md:text-lg">
+                                    개인 지식 베이스(NotebookLM)를 안티그래비티 에이전트와 연결하는 <span className="text-emerald-400 font-semibold">실전 훈련</span>입니다.
+                                    전설의 <span className="text-white font-semibold">'코다리 자동화 부장'</span> 페르소나와 대화하며, 단순 연동을 넘어선
+                                    <span className="text-white font-semibold"> "데이터 장악력"</span>을 키웁니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a
+                        href="https://youtu.be/Gts_7nuf9dQ?si=wVl5URAxu5j8HTiN"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 hover:text-red-300 transition-all font-semibold text-sm group"
+                    >
+                        <PlayCircle size={20} className="group-hover:scale-110 transition-transform" />
+                        영상으로 보기: NotebookLM MCP로 안티그래비티 연결하기
+                    </a>
+                </div>
+            </section>
+
+            {/* Prompt Section */}
+            <div className="container max-w-5xl mx-auto px-6 pb-20">
+                <div className="relative group">
+                    {/* Glowing Border effect */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-[24px] opacity-30 group-hover:opacity-50 blur transition duration-500"></div>
+
+                    <div className="relative bg-[#1e293b] rounded-[22px] overflow-hidden shadow-2xl">
+                        {/* Terminal Header */}
+                        <div className="flex items-center justify-between px-6 py-4 bg-[#0f172a] border-b border-white/5">
+                            <div className="flex items-center gap-4">
+                                <div className="flex gap-2">
+                                    <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]"></div>
+                                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123]"></div>
+                                    <div className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]"></div>
+                                </div>
+                                <div className="flex items-center gap-2 text-slate-500 font-mono text-xs ml-2">
+                                    <Terminal size={12} />
+                                    <span>kodari_persona.prompt</span>
+                                </div>
+                            </div>
+
                             <button
                                 onClick={handleCopyClick}
-                                style={{
-                                    background: copied ? '#16a34a' : BRAND_GOLD,
-                                    color: copied ? 'white' : '#ffffff',
-                                    border: 'none',
-                                    padding: '10px 20px',
-                                    borderRadius: '999px',
-                                    fontSize: '0.95rem',
-                                    fontWeight: 600,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '8px',
-                                    cursor: 'pointer',
-                                    boxShadow: '0 10px 18px rgba(250, 204, 21, 0.3)',
-                                    transition: 'background 0.3s ease'
-                                }}
+                                className={`
+                                    flex items-center gap-2 px-4 py-1.5 rounded-lg font-semibold text-xs transition-all
+                                    ${copied
+                                        ? 'bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/50'
+                                        : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
+                                    }
+                                `}
                             >
                                 {copied ? (
                                     <>
-                                        <CheckCircle size={18} />
-                                        복사 완료!
+                                        <CheckCircle size={14} />
+                                        <span>Copied!</span>
                                     </>
                                 ) : (
                                     <>
-                                        <Copy size={18} />
-                                        프롬프트 복사
+                                        <Copy size={14} />
+                                        <span>Copy Prompt</span>
                                     </>
                                 )}
                             </button>
                         </div>
 
-                        <div
-                            style={{
-                                background: '#f8fafc',
-                                color: '#0d1b2a',
-                                padding: '25px',
-                                borderRadius: '12px',
-                                fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-                                fontSize: '0.95rem',
-                                lineHeight: 1.7,
-                                whiteSpace: 'pre-wrap',
-                                border: '1px dashed #cbd5e1',
-                                overflowX: 'auto'
-                            }}
-                        >
-                            {promptText}
+                        {/* Prompt Content */}
+                        <div className="relative">
+                            <pre className="p-6 md:p-8 text-[15px] md:text-base text-slate-300 font-mono leading-relaxed h-[600px] overflow-y-auto custom-scrollbar whitespace-pre-wrap selection:bg-emerald-500/30 bg-[#1e293b]">
+                                {promptText}
+                            </pre>
+
+                            {/* Scroll hint gradient */}
+                            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#1e293b] to-transparent pointer-events-none" />
                         </div>
                     </div>
-
-
-
                 </div>
+
+
             </div>
 
-            {/* 저작권 경고 모달 */}
-            {
-                showModal && (
-                    <div style={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'rgba(0,0,0,0.7)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        zIndex: 9999,
-                        padding: '20px',
-                        backdropFilter: 'blur(4px)'
-                    }}>
-                        <div style={{
-                            background: 'white',
-                            padding: '30px',
-                            borderRadius: '20px',
-                            maxWidth: '500px',
-                            width: '100%',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
-                            border: '1px solid #e2e8f0',
-                            animation: 'fadeIn 0.2s ease-out'
-                        }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                                <div style={{
-                                    width: '60px',
-                                    height: '60px',
-                                    background: '#fef2f2',
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginBottom: '20px'
-                                }}>
-                                    <AlertTriangle size={30} color="#ef4444" />
-                                </div>
-
-                                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1b263b', marginBottom: '16px' }}>
-                                    ⚠️ 저작권 및 사용 규정 안내
-                                </h3>
-
-                                <p style={{ color: '#475569', lineHeight: 1.6, marginBottom: '24px', fontSize: '1rem', wordBreak: 'keep-all' }}>
-                                    본 프롬프트의 저작권은 <b>Connect AI LAB</b>에 있습니다.<br /><br />
-                                    타사 강의, 교육 자료, 유료 콘텐츠 등에서 출처 표기 없이 무단으로 도용하거나 상업적으로 이용하는 경우, <b>저작권법 위반으로 법적 책임</b>을 질 수 있습니다.
-                                </p>
-
-                                <div style={{
-                                    background: '#f1f5f9',
-                                    padding: '16px',
-                                    borderRadius: '12px',
-                                    width: '100%',
-                                    marginBottom: '24px'
-                                }}>
-                                    <p style={{ margin: 0, color: '#0f172a', fontWeight: 600, fontSize: '1.05rem' }}>
-                                        위 규정을 확인하였으며,<br />무단으로 사용하지 않으시겠습니까?
-                                    </p>
-                                </div>
-
-                                <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
-                                    <button
-                                        onClick={() => setShowModal(false)}
-                                        style={{
-                                            flex: 1,
-                                            padding: '14px',
-                                            borderRadius: '12px',
-                                            background: '#f1f5f9',
-                                            color: '#64748b',
-                                            border: 'none',
-                                            fontWeight: 700,
-                                            fontSize: '1rem',
-                                            cursor: 'pointer',
-                                            transition: 'background 0.2s'
-                                        }}
-                                    >
-                                        아니요 (취소)
-                                    </button>
-                                    <button
-                                        onClick={executeCopy}
-                                        style={{
-                                            flex: 1,
-                                            padding: '14px',
-                                            borderRadius: '12px',
-                                            background: '#16a34a',
-                                            color: 'white',
-                                            border: 'none',
-                                            fontWeight: 700,
-                                            fontSize: '1rem',
-                                            cursor: 'pointer',
-                                            boxShadow: '0 4px 6px -1px rgba(22, 163, 74, 0.4)',
-                                            transition: 'transform 0.1s'
-                                        }}
-                                    >
-                                        네, 동의합니다 (복사)
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
-        </div >
+            <CopyrightModal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onConfirm={executeCopy}
+            />
+        </div>
     );
 };
 

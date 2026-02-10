@@ -4,49 +4,33 @@ import CategoryPage from './pages/CategoryPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-// 실제 교재 페이지들
-import ChatGPTPrompts40Page from './pages/ChatGPTPrompts40Page'
-import AIAgentBasicsTextbook from './pages/AIAgentBasicsTextbook'
-import AndrewNgAIVisionPage from './pages/AndrewNgAIVisionPage'
-import AIMoneyMasterPromptsPage from './pages/AIMoneyMasterPromptsPage'
-import AIMoneyImagePromptsPage from './pages/AIMoneyImagePromptsPage'
-import AIMoneyVideoPromptsPage from './pages/AIMoneyVideoPromptsPage'
-import AIRealisticCharacterVideoPage from './pages/AIRealisticCharacterVideoPage'
-import AIVideoGenerationPromptsPage from './pages/AIVideoGenerationPromptsPage'
-import PrivacyPage from './pages/PrivacyPage'
+// Core Modules
 import NotebookLMPromptPage from './pages/NotebookLMPromptPage'
+import StitchMCPPage from './pages/StitchMCPPage'
+import GlobalVentureSkillPage from './pages/GlobalVentureSkillPage'
+
+// Legal
+import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
 
 function App() {
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--color-bg-primary)' }}>
             <Header />
-            <main style={{ flex: 1 }}>
+            <main style={{ flex: 1, position: 'relative' }}>
                 <Routes>
-                    {/* 메인 페이지 */}
+                    {/* Main Page */}
                     <Route path="/" element={<HomePage />} />
 
-                    {/* 카테고리 페이지 */}
+                    {/* Category Pages */}
                     <Route path="/category/:categoryId" element={<CategoryPage />} />
 
-                    {/* 프롬프트 교재들 */}
-                    <Route path="/textbook/chatgpt-prompts-40plus" element={<ChatGPTPrompts40Page />} />
-                    <Route path="/textbook/ai-money-master-prompts" element={<AIMoneyMasterPromptsPage />} />
-
-                    {/* 이미지 생성 교재들 */}
-                    <Route path="/textbook/ai-money-image-prompts" element={<AIMoneyImagePromptsPage />} />
-
-                    {/* 영상 생성 교재들 */}
-                    <Route path="/textbook/ai-money-video-prompts" element={<AIMoneyVideoPromptsPage />} />
-                    <Route path="/textbook/ai-character-video-prompts" element={<AIRealisticCharacterVideoPage />} />
-                    <Route path="/textbook/ai-video-generation-guide" element={<AIVideoGenerationPromptsPage />} />
-
-                    {/* 자동화 교재들 */}
-                    <Route path="/textbook/ai-agent-basics" element={<AIAgentBasicsTextbook />} />
-                    <Route path="/textbook/andrew-ng-ai-vision" element={<AndrewNgAIVisionPage />} />
+                    {/* Core Textbooks */}
                     <Route path="/textbook/notebooklm-mcp-guide" element={<NotebookLMPromptPage />} />
+                    <Route path="/textbook/stitch-mcp-guide" element={<StitchMCPPage />} />
+                    <Route path="/textbook/global-venture-guide" element={<GlobalVentureSkillPage />} />
 
-                    {/* 법적 고지 */}
+                    {/* Legal */}
                     <Route path="/privacy" element={<PrivacyPage />} />
                     <Route path="/terms" element={<TermsPage />} />
                 </Routes>

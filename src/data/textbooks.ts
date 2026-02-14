@@ -56,6 +56,17 @@ export const textbooks: Textbook[] = [
         date: '2024-03-20',
         isNew: true,
         link: '/textbook/global-venture-guide'
+    },
+    {
+        id: 'zenpop-pinch-game',
+        category: 'skills',
+        title: '핀치 게임 만들기 (Zen-Pop)',
+        description: 'MediaPipe + Canvas + Web Audio API + Gemini AI로 ASMR 힐링 버블팝 게임을 만듭니다.',
+        author: 'Connect AI LAB',
+        readTime: '25분',
+        date: '2024-03-21',
+        isNew: true,
+        link: '/textbook/zenpop-pinch-game'
     }
 ]
 

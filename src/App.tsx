@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import NotebookLMPromptPage from './pages/NotebookLMPromptPage'
 import StitchMCPPage from './pages/StitchMCPPage'
 import GlobalVentureSkillPage from './pages/GlobalVentureSkillPage'
+import ZenPopSkillPage from './pages/ZenPopSkillPage'
 
 // Legal
 import PrivacyPage from './pages/PrivacyPage'
@@ -29,6 +30,7 @@ function App() {
                     <Route path="/textbook/notebooklm-mcp-guide" element={<NotebookLMPromptPage />} />
                     <Route path="/textbook/stitch-mcp-guide" element={<StitchMCPPage />} />
                     <Route path="/textbook/global-venture-guide" element={<GlobalVentureSkillPage />} />
+                    <Route path="/textbook/zenpop-pinch-game" element={<ZenPopSkillPage />} />
 
                     {/* Legal */}
                     <Route path="/privacy" element={<PrivacyPage />} />

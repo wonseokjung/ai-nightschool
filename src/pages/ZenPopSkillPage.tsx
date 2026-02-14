@@ -206,7 +206,7 @@ To rapidly design and develop a high-retention, client-side "Digital Fidget" web
                                 <p className="text-slate-300 leading-relaxed text-sm md:text-base mb-3">
                                     1인 기업가 <span className="text-amber-400 font-semibold">피터 레벨스</span>는 연 매출 <span className="text-white font-semibold">40억원</span>, 순이익률 <span className="text-white font-semibold">90% 이상</span>.
                                     사무실도 직원도 없이 노트북 하나로 70개 서비스를 만들었고, 그 중 몇 개가 대박났습니다.
-                                    그의 <span className="text-amber-400 font-semibold">FlyFighters.com</span> 비행기 게임은 3주 만에 <span className="text-white font-semibold">9천만원</span>을 벌었습니다.
+                                    그의 <a href="https://fly.pieter.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 font-semibold hover:text-amber-300 underline decoration-amber-500/30">fly.pieter.com</a> 비행기 게임은 3주 만에 <span className="text-white font-semibold">9천만원</span>을 벌었습니다.
                                 </p>
                                 <p className="text-slate-400 text-xs italic">
                                     "100개 만들면 한두 개는 터지지 않겠어?" — 완벽주의를 버리고, 빠르게 실행하는 것이 핵심입니다.
